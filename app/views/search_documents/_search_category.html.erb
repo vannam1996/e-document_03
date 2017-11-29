@@ -1,0 +1,9 @@
+<% if @documents.any? %>
+  <ol class="documents">
+    <%= render @documents %>
+  </ol>
+  <%= will_paginate @documents %>
+<% else %>
+  <p class="text-danger"><%= t ".not_found" %></p>
+<% end %>
+

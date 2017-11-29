@@ -16,6 +16,6 @@ users = User.order(:created_at).take(6)
 20.times do |n|
   name_document = Faker::Book.title
   users.each { |user| user.documents.create!(name_document: name_document,
-    category_id: 1,
+    category_id: n,
     content: "#{name_document}as")}
 end

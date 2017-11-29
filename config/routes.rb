@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   delete "/unfriend", to: "friends#destroy"
+  post "/search_name_document", to: "search_documents#search_name"
+  post "/search_categories", to: "search_documents#search_category"
 
   resources :users
   resources :friends

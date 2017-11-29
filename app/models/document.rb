@@ -7,5 +7,8 @@ class Document < ApplicationRecord
   has_many :history_downloads, dependent: :destroy
 
   scope :order_by_created_at, ->{order created_at: :desc}
+  scope :search_name, ->(name_doc){where "name_document LIKE ?", "%#{name_doc}%"}
+  scope :search_category, ->(category_id){where "category_id = ?", category_id}
+
   mount_uploader :content, DocumentUploader
 end
