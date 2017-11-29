@@ -1,0 +1,16 @@
+<h3 class="text-center"><%= t ".title" %></h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th><%= t ".name_doc" %></th>
+      <th><%= t ".time" %></th>
+      <th><%= t ".favorite" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @favorites.any? %>
+      <%= render @favorites %>
+    <% end %>
+    <%= will_paginate @favorites %>
+  </tbody>
+</table>

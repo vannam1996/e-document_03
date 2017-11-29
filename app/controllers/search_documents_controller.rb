@@ -9,5 +9,4 @@ class SearchDocumentsController < ApplicationController
     @documents = Document.search_category(params[:id]).paginate page: params[:page]
     render partial: "search_category"
   end
-
 end

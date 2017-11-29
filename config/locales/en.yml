@@ -46,6 +46,7 @@ en:
       setting: "Setting"
       friends: "Friends list"
       upload: "Upload"
+      history: "History Download"
     footer:
       contact: "Contact"
       about: "About"
@@ -179,9 +180,13 @@ en:
       name_document: "Your Name Document..."
     show:
       fail: "Not Found Document"
-  history_download:
+  history_downloads:
     success: "download success"
     error: "error download"
+    index:
+      title: "History Downloads"
+      name_doc: "Name Document"
+      time: "Time"
   categories:
     create:
       style_invalid: "style category is empty!"
@@ -192,3 +197,11 @@ en:
       not_found: "Not Found Documents"
     search_name:
       category: "Category"
+  search_documents:
+    search_category:
+      not_found: "Not Found Documents"
+  favorites:
+    index:
+      name_doc: "Name Document"
+      time: "Time"
+      favorite: "Favorite"

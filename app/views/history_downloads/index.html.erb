@@ -1,0 +1,15 @@
+<h3 class="text-center"><%= t ".title" %></h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th><%= t ".name_doc" %></th>
+      <th><%= t ".time" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @histories.any? %>
+      <%= render partial: "history_download", collection: @histories, as: :history %>
+    <% end %>
+    <%= will_paginate @histories %>
+  </tbody>
+</table>
