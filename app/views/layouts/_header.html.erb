@@ -1,0 +1,23 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to t(".logo"), root_path, class: "logo" %>
+    <nav>
+      <%= form_for :document do |f| %>
+        <div class="col-xs-4 col-xs-offset-2 search_header">
+          <%= f.text_field :name_document, class: "form-control input-sm", id: "search_document",
+            placeholder: t(".placeholer_search") %>
+        </div>
+
+        <div class="col-xs-1 search_header">
+          <%= link_to "#", :class => "btn btn-primary btn-sm icSearch" do %>
+            <span class="glyphicon glyphicon-search"></span>
+          <% end %>
+        </div>
+      <% end %>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to t(".login"), "#" %></li>
+        <li><%= link_to t(".signup"), "#" %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
