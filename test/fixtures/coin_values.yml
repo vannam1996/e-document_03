@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cost_per_coin: 9.99
+
+two:
+  cost_per_coin: 9.99

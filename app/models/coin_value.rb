@@ -1,0 +1,2 @@
+class CoinValue < ApplicationRecord
+end
