@@ -1,0 +1,23 @@
+<div class="modal fade" id="add-report" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <%= button_tag type: "button", class: "close", data: {dismiss: "modal"} do %>
+          &times;
+        <% end %>
+        <h4 class="modal-title"><%= t ".head" %></h4>
+      </div>
+
+      <div class="modal-body">
+        <%= text_area_tag "comment", nil, class: "form-control content" %>
+      </div>
+
+      <div class="modal-footer">
+        <%= button_tag type: "button",
+          class: "btn btn-primary center-block btn-add-report" do %>
+          <%= t ".submit" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,15 +1,11 @@
 class CommentsController < ApplicationController
   before_action :find_comment, only: :destroy
-  before_action :find_document, only: :create
 
   def create
-    @comment = current_user.comments.new params_comment
-    if @comment.save
-      load_data_comment
-      reponse_action
+    if params[:is_report] == "true"
+      create_report
     else
-      flash[:danger] = t "comments.comment.comment_error"
-      redirect_to request.referer || root_url
+      create_comments
     end
   end
 
@@ -52,10 +48,35 @@ class CommentsController < ApplicationController
     end
   end
 
-  def find_document
-    @document = Document.find_by id: params[:document_id]
+  def find_document document_id
+    @document = Document.find_by id: document_id
     return if @document
     flash[:danger] = t "documents.error_find"
     redirect_to root_url
+  end
+
+  def params_report
+    params.permit :content, :document_id, :is_report
+  end
+
+  def create_report
+    @comment = current_user.comments.new params_report
+    @document = Document.find_by id: params[:document_id]
+    unless @document && @comment.save && @comment
+      @comment.errors.add :save, t("categories.create.save_fail")
+    end
+    render partial: "report"
+  end
+
+  def create_comments
+    find_document params[:document_id]
+    @comment = current_user.comments.new params_comment
+    if @comment.save
+      load_data_comment
+      reponse_action
+    else
+      flash[:danger] = t "comments.comment.comment_error"
+      redirect_to request.referer || root_url
+    end
   end
 end

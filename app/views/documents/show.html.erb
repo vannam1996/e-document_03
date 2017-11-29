@@ -1,6 +1,10 @@
 <div class="row">
   <aside class="col-md-4">
     <%= render "documents/document_detail" %>
+    <div class="report">
+      <%= render "comments/report" %>
+    </div>
+    <%= render "comments/modal_report" %>
   </aside>
   <div class="col-md-8" id="comments">
     <div id = "new-comment">

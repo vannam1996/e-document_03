@@ -14,3 +14,4 @@ category:
   maximum_style: 30
 comments:
   per_page: 8
+  minimum_content: 10

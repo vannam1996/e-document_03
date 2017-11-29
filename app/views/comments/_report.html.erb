@@ -1,0 +1,10 @@
+<%= render "shared/error_messages", object: @comment %>
+<% if user_report?  current_user.id, @document %>
+  <button type="button" class="btn btn-basic disabled"><%= t ".reported" %></button>
+<% else %>
+  <%= button_tag type: "button", class: "btn btn-danger",
+    data: {toggle: "modal", target: "#add-report"} do %>
+    <%= t ".report" %>
+  <% end %>
+<% end %>
+

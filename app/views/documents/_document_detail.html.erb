@@ -1,6 +1,6 @@
 <section class="document_info">
   <h1>
-    <%= @document.name_document %>
+    <%= link_to @document.name_document , @document.content.url %>
   </h1>
   <%= t "documents.document.upload_by", name: @document.user.name %>
   <span class="timestamp">
@@ -11,15 +11,15 @@
 <section class="stats">
   <div class="stats">
     <%= link_to "#" do %>
-      <%= t ".favorite" %>
-      <strong id="favorite" class="stat text-center">
+      <%= t ".download_times" %>
+      <strong id="download_times" class="stat text-center">
         <%= @document.history_downloads.size %>
       </strong>
     <% end %>
 
     <%= link_to "#" do %>
-      <%= t ".favorite" %>
-      <strong id="favorite" class="stat text-center">
+      <%= t ".Comments" %>
+      <strong id="Comments" class="stat text-center">
         <%= @document.comments.size %>
       </strong>
     <% end %>
@@ -32,3 +32,4 @@
     <% end %>
   </div>
 </section>
+<%= hidden_field_tag "document-id", "#{@document.id}", {id: "document-id"} %>
