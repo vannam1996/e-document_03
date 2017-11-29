@@ -1,0 +1,51 @@
+<section class="user_info">
+  <%= image_tag @user.avatar.url, class: "img-circle", size: Settings.user.avatar %>
+  <h1>
+    <%= @user.name %>
+  </h1>
+</section>
+
+<section class="stats">
+  <div class="stats">
+    <%= link_to friends_path(user_id: @user.id) do %>
+      <%= t ".friend" %>
+      <strong id="friends" class="stat text-center">
+      </strong>
+    <% end %>
+
+    <%= link_to "#" do %>
+      <%= t ".requested" %>
+      <strong id="request_send" class="stat text-center">
+        <%= @user.sending.size %>
+      </strong>
+    <% end %>
+
+    <%= link_to "#" do %>
+      <%= t ".pending_accept" %>
+      <strong id="request_receiver" class="stat text-center">
+        <%= @user.accepting.size %>
+      </strong>
+    <% end %>
+
+    <%= link_to "#" do %>
+      <%= t ".download_times" %>
+      <strong id="down_count" class="stat text-center">
+        <%= @user.down_count %>
+      </strong>
+    <% end %>
+
+    <%= link_to "#" do %>
+      <%= t ".upload_times" %>
+      <strong id="up_count" class="stat text-center">
+        <%= @user.up_count %>
+      </strong>
+    <% end %>
+
+    <%= link_to "#" do %>
+      <%= t ".coins" %>
+      <strong id="coin" class="stat text-center">
+        <%= @user.coin %>
+      </strong>
+    <% end %>
+  </div>
+</section>

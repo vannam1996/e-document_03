@@ -36,4 +36,10 @@ module SessionsHelper
     cookies.delete :user_id
     cookies.delete :remember_token
   end
+
+  def logged_in_user
+    return if is_loged_in?
+    flash[:danger] = t "users.new.not_login"
+    redirect_to login_path
+  end
 end

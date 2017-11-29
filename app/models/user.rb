@@ -23,8 +23,10 @@ class User < ApplicationRecord
   validates :email, presence: true, length: {maximum: Settings.user.maximum_email},
    format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
   has_secure_password
-  validates :password, presence: true, length: {minimum: Settings.user.minimum_password}
+  validates :password, presence: true, length: {minimum: Settings.user.minimum_password}, allow_nil: true
   mount_uploader :avatar, AvatarUploader
+
+  scope :friend_of_user, ->(array_friends_id){where "id IN (?)", array_friends_id}
 
   def remember
     self.remember_token = User.new_token
