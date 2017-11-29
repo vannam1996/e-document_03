@@ -15,11 +15,11 @@ User.create!(name:  "Example User",
 end
 
 users = User.order(:created_at).take(6)
-50.times do |n|
+20.times do |n|
   users.each { |user| Friend.create!(
     is_accept: true,
     sender_id: user.id,
-    accepter_id: n)}
+    accepter_id: n+7)}
 end
 
 users = User.first
@@ -43,3 +43,4 @@ users = User.order(:created_at).take(6)
     category_id: 2,
     content: "#{name_document}as")}
 end
+

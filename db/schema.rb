@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207141406) do
+ActiveRecord::Schema.define(version: 20171208052701) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "style"
@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 20171207141406) do
     t.bigint "document_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_report", default: false
     t.integer "reply_id"
+    t.boolean "is_report", default: false
     t.index ["document_id"], name: "index_comments_on_document_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end

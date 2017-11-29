@@ -1,7 +1,6 @@
 class DocumentsController < ApplicationController
   before_action :logged_in_user, only: %i(new create destroy)
-  before_action :correct_document, only: :destroy
-  before_action :find_document, only: :show
+  before_action :find_document, only: %i(destroy show)
   before_action :load_data_comment, only: :show
 
   def show
@@ -13,8 +12,8 @@ class DocumentsController < ApplicationController
   end
 
   def destroy
-    if @document.destroy
-      flash[:success] = t "documents.destroy.success"
+    if current_user.is_admin? && document_illegal?(@document) || correct_document?(@document)
+      delete_document @document
     else
       flash[:danger] = t "documents.destroy.fail"
     end
@@ -51,8 +50,15 @@ class DocumentsController < ApplicationController
     params.require(:document).permit :category_id, :name_document, :content
   end
 
-  def correct_document
-    @document = current_user.documents.find_by id: params[:id]
-    redirect_to root_url if @document.nil?
+  def correct_document? document
+    document == current_user.documents.find_by(id: params[:id])
+  end
+
+  def delete_document document
+    if document.destroy
+      flash[:success] = t "documents.destroy.success"
+    else
+      flash[:danger] = t "documents.destroy.fail"
+    end
   end
 end

@@ -47,6 +47,7 @@ en:
       friends: "Friends list"
       upload: "Upload"
       history: "History Download"
+      doc_report: "Documents Reported"
     footer:
       contact: "Contact"
       about: "About"
@@ -92,6 +93,7 @@ en:
     flash:
       error: "Invalid email or password"
       login_success: "Login Success"
+      not_admin: "User Is Not Admin"
   shared:
     error_count: "The form contains"
     error_text: "error"
@@ -207,6 +209,15 @@ en:
       not_found: "Not Found Documents"
     search_name:
       category: "Category"
+    list_reported:
+      head: "Comments Reported"
+    search_reported:
+      name_doc: "Name Documents"
+      time: "Time"
+      reported: "Reported"
+      comments: "comments"
+      del: "Delete"
+      title: "List Reported"
   favorites:
     index:
       name_doc: "Name Document"

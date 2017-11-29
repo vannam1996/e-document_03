@@ -11,6 +11,7 @@ user:
   default_buy: 1
 documents:
   file: ".pdf"
+  illegal: 5
 category:
   maximum_style: 30
 comments:
