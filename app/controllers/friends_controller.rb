@@ -4,15 +4,15 @@ class FriendsController < ApplicationController
   before_action :find_friend, only: :update
 
   def index
-    @user = User.find_by(id: params[:user_id])
+    @user = User.find_by id: params[:user_id]
     return unless @user
     @title = t "users.friended.title"
     array_id = Friend.friend_list_id params[:user_id]
-    @friends = User.friend_of_user(array_id).paginate page: params[:page]
+    @friends = User.friend_of_user(array_id).order_by_created_at.paginate page: params[:page]
   end
 
   def destroy
-    destroy_friend params[:id], params[:user_id]
+    destroy_friend params[:id], current_user.id
     redirect_to request.referer || root_url
   end
 

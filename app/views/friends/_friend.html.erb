@@ -1,6 +1,8 @@
 <li id="friend-<%= friend.id %>">
   <%= image_tag friend.avatar.url, class: "img-circle", size: Settings.user.avt_friend %>
-  <%= link_to friend.name, friend %> |
-  <%= link_to t("users.index.del"), friend_path(friend.id, user_id: "#{@user.id}"), method: :delete,
-    data: {confirm: t("users.show_friend.confirm")} %>
+  <%= link_to friend.name, friend %>
+  <% if current_user? @user %>
+    | <%= link_to t("users.index.del"), unfriend_path(id: friend.id), method: :delete,
+      data: {confirm: t("users.show_friend.confirm")} %>
+  <% end %>
 </li>
