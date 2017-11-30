@@ -30,5 +30,20 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
-  title: "Edocument"
+  layouts:
+    header:
+      logo: "E-Document"
+      login: "Log in"
+      signup: "Sign up"
+      search: "Search"
+      placeholer_search: "search document..."
+      type_doc: "Type Document"
+    footer:
+      contact: "Contact"
+      about: "About"
+      author: "The application design by Lam and Nam"
+  static_page:
+    home:
+      home: "Home"
+      title: "This is Home"
+
