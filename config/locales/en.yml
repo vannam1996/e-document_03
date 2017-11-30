@@ -34,10 +34,14 @@ en:
     header:
       logo: "E-Document"
       login: "Log in"
+      logout: "Log out"
       signup: "Sign up"
       search: "Search"
       placeholer_search: "search document..."
       type_doc: "Type Document"
+      users: "Users"
+      profile: "Profile"
+      setting: "Setting"
     footer:
       contact: "Contact"
       about: "About"
@@ -62,6 +66,8 @@ en:
       errorshow: "Can't find user"
   sessions:
     new:
+      email: "Email Address"
+      pass: "Password"
       title: "Log in"
       btlogin: "Log in"
       forgot_pass: "forgot password"

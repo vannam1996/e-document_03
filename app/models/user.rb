@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  attr_accessor :remember_token
+
   has_many :transactions, dependent: :nullify
   has_many :favorites, dependent: :destroy
   has_many :history_downloads, dependent: :destroy
@@ -23,6 +25,28 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: {minimum: Settings.user.minimum_password}
   mount_uploader :avatar, AvatarUploader
+
+  def remember
+    self.remember_token = User.new_token
+    update_attribute :remember_digest, User.digest(remember_token)
+  end
+
+  def forget
+    update_attribute :remember_digest, nil
+  end
+
+  def authenticated? remember_token
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+
+  def self.digest string
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+
+  def self.new_token
+    SecureRandom.urlsafe_base64
+  end
 
   private
 
