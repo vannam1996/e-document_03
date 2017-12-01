@@ -1,0 +1,12 @@
+<% if object.errors.any? %>
+  <div class = "error_explanation">
+    <div class = "alert alert-danger">
+      <%= t "shared.error_count" %> <%= pluralize object.errors.size, t("shared.error_text") %>.
+    </div>
+    <ul>
+      <% object.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

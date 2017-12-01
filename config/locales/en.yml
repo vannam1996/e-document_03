@@ -46,4 +46,30 @@ en:
     home:
       home: "Home"
       title: "This is Home"
-
+  hello: "Hello world"
+  title: "Edocument"
+  users:
+    new:
+      title: "Sign Up"
+      descrip1: "This will be a signup page for new users."
+      passconfirm: "Confirmation"
+      btncreate: "Create account"
+      create_success: "Create success"
+      create_error: "Can't create create user"
+    show:
+      title: "Show User"
+    flash:
+      errorshow: "Can't find user"
+  sessions:
+    new:
+      title: "Log in"
+      btlogin: "Log in"
+      forgot_pass: "forgot password"
+      remember: "Remember me on this computer"
+      sign_up: "New user ?"
+      link_signup: "Sign up now!"
+    flash:
+      error: "Invalid email or password"
+  shared:
+    error_count: "The form contains"
+    error_text: "error"
