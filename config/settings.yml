@@ -4,3 +4,5 @@ user:
   minimum_password: 6
   avatar_width: 300
   avatar_heigh: 400
+  remember_me:
+    check: "1"

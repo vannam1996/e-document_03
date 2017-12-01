@@ -110,6 +110,7 @@ footer ul li {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 /* header */
 
 .search_header {
@@ -146,4 +147,48 @@ input, textarea, select, .uneditable-input {
 
 input {
   height: auto !important;
+}
+
+/*form login*/
+
+.wrapper {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.form-login {
+  max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background-color: $White;
+  border: 1px solid $gray-light;
+
+  .checkbox-label {
+    font-weight: normal;
+    margin-bottom: 15px;
+    margin-top: 10px;
+  }
+
+  .checkbox {
+    width: auto;
+    margin-left: 0;
+    display: inline;
+  }
+
+  .form_control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+
+    &:focus {
+      z-index: 2;
+    }
+  }
+
+  input {
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 }

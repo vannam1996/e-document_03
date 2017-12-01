@@ -21,6 +21,7 @@ gem "config"
 gem "carrierwave", "1.1.0"
 gem "mini_magick", "4.7.0"
 gem "fog", "1.40.0"
+gem "jquery-rails"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
