@@ -1,11 +1,14 @@
 class DocumentsController < ApplicationController
   before_action :logged_in_user, only: %i(new create destroy)
   before_action :find_document, only: %i(destroy show)
+  before_action :correct_document, only: :destroy
   before_action :load_data_comment, only: :show
+  before_action :add_to_history_view, only: :show
 
   def show
     @document = Document.find_by id: params[:id]
     @comment = current_user.comments.build
+    @favorite = current_user.favorites.find_by document_id: params[:id]
     return if @document
     flash[:danger] = t "documents.show.fail"
     redirect_to root_url
@@ -60,5 +63,14 @@ class DocumentsController < ApplicationController
     else
       flash[:danger] = t "documents.destroy.fail"
     end
+  end
+
+  def add_to_history_view
+    @history_view = current_user.history_views.find_by document_id: @document.id
+    return if @history_view && @history_view.update_attribute(:updated_at, Time.zone.now)
+    @history_view = current_user.history_views.new document_id: @document.id
+    return if @history_view.save
+    flash[:danger] = t "documents.document.save_history"
+    redirect_to root_path
   end
 end

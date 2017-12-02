@@ -83,6 +83,15 @@ ActiveRecord::Schema.define(version: 20171208052701) do
     t.index ["user_id"], name: "index_history_downloads_on_user_id"
   end
 
+  create_table "history_views", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "user_id"
+    t.bigint "document_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["document_id"], name: "index_history_views_on_document_id"
+    t.index ["user_id"], name: "index_history_views_on_user_id"
+  end
+
   create_table "transactions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
     t.integer "coin"
@@ -119,5 +128,7 @@ ActiveRecord::Schema.define(version: 20171208052701) do
   add_foreign_key "favorites", "users"
   add_foreign_key "history_downloads", "documents"
   add_foreign_key "history_downloads", "users"
+  add_foreign_key "history_views", "documents"
+  add_foreign_key "history_views", "users"
   add_foreign_key "transactions", "users"
 end
