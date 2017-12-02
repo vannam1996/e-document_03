@@ -32,6 +32,8 @@ class DocumentsController < ApplicationController
   def create
     @document = current_user.documents.new params_document
     if @document.save
+      send_email
+      update_count_upload
       flash[:success] = t "documents.upload_success"
       redirect_to request.referer || root_url
     else
@@ -41,6 +43,10 @@ class DocumentsController < ApplicationController
   end
 
   private
+
+  def update_count_upload
+    current_user.update_attribute :up_count, current_user.up_count.to_i + 1
+  end
 
   def find_document
     @document = Document.find_by id: params[:id]
@@ -72,5 +78,9 @@ class DocumentsController < ApplicationController
     return if @history_view.save
     flash[:danger] = t "documents.document.save_history"
     redirect_to root_path
+  end
+
+  def send_email
+    DocumentMailer.upload_success(current_user).deliver_now
   end
 end

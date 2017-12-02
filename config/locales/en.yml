@@ -34,6 +34,7 @@ en:
   title: "Edocument"
   layouts:
     header:
+      add_admin: "New admin"
       logo: "E-Document"
       login: "Log in"
       logout: "Log out"
@@ -173,6 +174,7 @@ en:
       success: "Deleted Document Success"
       fail: "Not Deleted Document"
     document:
+      open_document: "Open document"
       confirm: "Are you sure?"
       del: "Delete"
       upload_by: "Upload by %{name}"
@@ -184,6 +186,7 @@ en:
       download_times: "Download times"
       comments: "Comments"
       favorite: "Favorite"
+      download: "Download"
     new:
       add_category: "Add Your Category"
       your_category: "Your Name Category..."
@@ -262,7 +265,6 @@ en:
     un_success: "Unfavorite success"
     un_error: "Unfavorite error"
     error_find: "Can't find favorite"
-
   admin:
     categories:
       not_admin: "You Aren't Admin"
@@ -284,3 +286,7 @@ en:
         success: "Update Is Success!"
       category:
         confirm: "Are You Want Delete This Category?"
+  document_mailer:
+    upload_success:
+      title: "E-document"
+      notice: "Your document has been uploaded"

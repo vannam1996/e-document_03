@@ -1,6 +1,6 @@
 class FriendsController < ApplicationController
   before_action :logged_in_user, only: %i(index destroy)
-  before_action :find_user, only: :show
+  before_action :find_user, only: %i(show destroy)
   before_action :find_friend, only: :update
 
   def index
@@ -13,7 +13,7 @@ class FriendsController < ApplicationController
 
   def destroy
     destroy_friend params[:id], current_user.id
-    redirect_to request.referer || root_url
+    reponse_action
   end
 
   def show

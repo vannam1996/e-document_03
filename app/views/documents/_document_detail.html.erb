@@ -6,6 +6,7 @@
   <span class="timestamp">
     <%= t "documents.document.posted", time: time_ago_in_words(@document.created_at) %>
   </span>
+  <%= link_to t(".download"), history_downloads_path(document_id: @document.id), method: :post %>
 </section>
 
 <section class="stats">
