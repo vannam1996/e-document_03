@@ -1,0 +1,8 @@
+<%= form_for current_user.comments.build, url: document_comments_path(@document), remote: true do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <%= f.hidden_field :document_id, value: @document.id %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: t(".comment"), class: "form-control" %>
+  </div>
+  <%= f.submit t(".btn_comment"), class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,20 @@
+<li class="reply-<%= comment.id %>">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <strong><%= comment.user.name %></strong>
+    </div>
+
+    <ul class="reply-date">
+      <%= time_ago_in_words comment.created_at %>
+
+      <% if current_user? comment.user %>
+        <%= link_to t(".del"), document_comment_path(@document, id: comment.id),
+          method: :delete, class: "btn btn-warning btn-circle text-uppercase" %>
+      <% end %>
+    </ul>
+
+    <div class="panel-body">
+      <%= comment.content %>
+    </div>
+  </div>
+</li>

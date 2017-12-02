@@ -1,0 +1,10 @@
+<%= form_for current_user.comments.build, url: document_comments_path(@document),
+  remote: true do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <%= f.hidden_field :document_id, value: @document.id %>
+  <%= f.hidden_field :reply_id, value: params[:comment_id] %>
+  <div class = "reply">
+    <%= f.text_field :content, placeholder: t(".comment"), class: "form-control" %>
+  </div>
+  <%= f.submit t(".reply"), class: "btn btn-info btn-circle text-uppercase.date" %>
+<% end %>

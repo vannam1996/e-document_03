@@ -3,5 +3,15 @@
     <%= render "documents/document_detail" %>
   </aside>
   <div class="col-md-8" id="comments">
+    <div id = "new-comment">
+      <%= render "comment_form" %>
+    </div>
+
+    <div id = "comment-list">
+      <% if @comments.any? %>
+        <%= render partial: "comments/comment", collection: @comments, as: :comment  %>
+      <% end %>
+      <%= will_paginate @comments %>
+    </div>
   </div>
 </div>

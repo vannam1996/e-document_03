@@ -12,7 +12,10 @@ Rails.application.routes.draw do
 
   resources :users
   resources :friends
-  resources :documents
+  resources :documents do
+    resources :comments, only: %i(create destroy)
+  end
+  resources :history_downloads, only: :create
   resources :categories, only: :create
   resources :history_downloads, only: %i(index create)
   resources :favorites, only: :index
