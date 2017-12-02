@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :users
   resources :friends
   resources :documents
+  resources :history_downloads, only: :create
 end

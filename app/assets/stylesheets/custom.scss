@@ -298,3 +298,33 @@ aside {
     border-bottom: 1px solid $gray-lighter;
   }
 }
+
+/* form document */
+
+.upload-drop-zone {
+  height: 200px;
+  border-width: 2px;
+  margin-bottom: 20px;
+}
+
+.upload-drop-zone {
+  color: $gray80;
+  border-style: dashed;
+  border-color: $gray80;
+  line-height: 200px;
+  text-align: center
+}
+
+.upload-drop-zone.drop {
+  color: $Dark;
+  border-color: $Dark;
+}
+
+.file-preview-input {
+  position: relative;
+  overflow: hidden;
+  margin: 0px;
+  color: $gray20;
+  background-color: $White;
+  border-color: $gray80;
+}

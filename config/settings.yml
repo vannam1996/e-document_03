@@ -11,3 +11,4 @@ user:
   avt_friend: 80
 documents:
   no_downloaded: 0
+  file: ".pdf"

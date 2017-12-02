@@ -14,3 +14,9 @@
                password: password,
                password_confirmation: password)
 end
+
+9.times do |n|
+  style = "abcd#{n+1}"
+  Category.create!(style: style,
+               user_id: 1)
+end
