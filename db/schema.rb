@@ -14,9 +14,10 @@ ActiveRecord::Schema.define(version: 20171201031803) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "style"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
   create_table "coin_values", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -43,7 +44,6 @@ ActiveRecord::Schema.define(version: 20171201031803) do
     t.datetime "updated_at", null: false
     t.string "name_document"
     t.index ["category_id"], name: "index_documents_on_category_id"
-    t.index ["content"], name: "index_documents_on_content"
     t.index ["user_id", "created_at"], name: "index_documents_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_documents_on_user_id"
   end
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20171201031803) do
   end
 
   create_table "friends", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.boolean "is_accept"
+    t.boolean "is_accept", default: false
     t.integer "sender_id"
     t.integer "accepter_id"
     t.datetime "created_at", null: false
@@ -101,8 +101,11 @@ ActiveRecord::Schema.define(version: 20171201031803) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "remember_digest"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["name"], name: "index_users_on_name"
   end
 
+  add_foreign_key "categories", "users"
   add_foreign_key "comments", "documents"
   add_foreign_key "comments", "users"
   add_foreign_key "documents", "categories"

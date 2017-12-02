@@ -10,11 +10,11 @@ class User < ApplicationRecord
   has_many :active_friends, class_name: Friend.name,
     foreign_key: :sender_id,
     dependent: :destroy
-  has_many :sending, through: :active_friends, source: :sender
+  has_many :sending, through: :active_friends, source: :accepter
   has_many :passive_friends, class_name: Friend.name,
     foreign_key: :accepter_id,
     dependent: :destroy
-  has_many :accepting, through: :passive_friends, source: :accepter
+  has_many :accepting, through: :passive_friends, source: :sender
 
   before_save :downcase_email
 
@@ -27,6 +27,7 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   scope :friend_of_user, ->(array_friends_id){where "id IN (?)", array_friends_id}
+  scope :request_friends, ->(user_ids){where id: user_ids}
 
   def remember
     self.remember_token = User.new_token
@@ -37,8 +38,10 @@ class User < ApplicationRecord
     update_attribute :remember_digest, nil
   end
 
-  def authenticated? remember_token
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  def authenticated? attribute, token
+    digest = send "#{attribute}_digest"
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
   end
 
   def self.digest string
@@ -48,6 +51,14 @@ class User < ApplicationRecord
 
   def self.new_token
     SecureRandom.urlsafe_base64
+  end
+
+  def send_request_friend other_user
+    sending << other_user
+  end
+
+  def is_friend? other_user
+    sending.include?(other_user) || accepting.include?(other_user)
   end
 
   private

@@ -1,0 +1,7 @@
+<li id="request-<%= friend.id %>">
+  <%= image_tag friend.avatar.url, class: "img-circle", size: Settings.user.avt_friend %>
+  <%= link_to friend.name, friend %> |
+  <%= link_to t("users.index.accept"), friend_path(sender_id: friend.id,
+    accepter_id: current_user.id), method: :put, data: {confirm: t("friends.show.confirm")},
+    class: "btn btn-primary" %>
+</li>

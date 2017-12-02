@@ -13,7 +13,7 @@
       </strong>
     <% end %>
 
-    <%= link_to "#" do %>
+    <%= link_to friend_path(id: @user.id) do %>
       <%= t ".requested" %>
       <strong id="request_send" class="stat text-center">
         <%= @user.sending.size %>
