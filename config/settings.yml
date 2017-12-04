@@ -6,3 +6,5 @@ user:
   avatar_heigh: 400
   remember_me:
     check: "1"
+  avatar: 100
+  avt_friend: 50
