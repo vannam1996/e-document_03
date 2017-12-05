@@ -54,6 +54,7 @@ en:
     home:
       home: "Home"
       title: "This is Home"
+      document: "Documents"
   sessions:
     new:
       email: "Email Address"
@@ -66,6 +67,7 @@ en:
       link_signup: "Sign up now!"
     flash:
       error: "Invalid email or password"
+      login_success: "Login Success"
   shared:
     error_count: "The form contains"
     error_text: "error"
@@ -77,9 +79,6 @@ en:
       btncreate: "Create account"
       create_success: "Create success"
       create_error: "Can't create create user"
-    flash:
-      errorshow: "Can't find user"
-      danger_login: "Please login"
     add_friend:
       send_request: "Add friend"
     delete_friend:
@@ -102,16 +101,12 @@ en:
       upload_times: "upload times"
       coins: "coins"
       title: "Show User"
+      document: "'s Documents"
+      not_have_doc: "No Have Documents"
     flash:
-      errorshow: "Can't find user"
-    new:
-      title: "Sign Up"
-      descrip1: "This will be a signup page for new users."
-      passconfirm: "Confirmation"
-      btncreate: "Create account"
-      create_success: "Create success"
-      create_error: "Can't create create user"
-      not_login: "Not Login"
+      error_show: "Can't find user"
+      not_correct_user: "Not Correct User"
+      danger_login: "Please login"
     show_friend:
       confirm: "Are you sure?"
       del: "Delete"
@@ -128,3 +123,13 @@ en:
       success: "accept success"
     flash:
       error: "Can't find friend"
+  documents:
+    destroy:
+      success: "Deleted Document Success"
+      fail: "Not Deleted Document"
+    document:
+      confirm: "Are you sure?"
+      del: "Delete"
+      upload_by: "Upload by %{name}"
+      posted: "Posted %{time} Ago"
+      download_times: "Downloads: %{times} times"

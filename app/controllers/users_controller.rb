@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :find_user, except: %i(new create)
   before_action :logged_in_user, only: %i(edit update show)
+  before_action :correct_user, only: %i(edit update)
 
   def edit; end
 
@@ -9,9 +10,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    return if @user
-    flash[:danger] = t "users.flash.errorshow"
-    redirect_to signup_path
+      @documents = @user.documents.order_by_created_at.paginate page: params[:page]
   end
 
   def create
@@ -44,6 +43,13 @@ class UsersController < ApplicationController
     @user = User.find_by id: params[:id]
     return if @user
     flash[:danger] = t "users.show.error_message"
+    redirect_to root_path
+  end
+
+  def correct_user
+    @user = User.find_by id: params[:id]
+    return if current_user? @user
+    flash[:danger] = t "users.flash.not_correct_user"
     redirect_to root_path
   end
 end

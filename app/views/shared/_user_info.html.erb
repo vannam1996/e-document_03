@@ -10,6 +10,7 @@
     <%= link_to friends_path(user_id: @user.id) do %>
       <%= t ".friend" %>
       <strong id="friends" class="stat text-center">
+        <%= User.friend_of_user(Friend.friend_list_id(@user.id)).size %>
       </strong>
     <% end %>
 

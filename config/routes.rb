@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
+  delete "/unfriend", to: "friends#destroy"
 
   resources :users
   resources :friends
+  resources :documents
 end

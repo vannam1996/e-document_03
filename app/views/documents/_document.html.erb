@@ -1,0 +1,13 @@
+<li id="document-<%= document.id %>">
+
+  <span class="content"> <h3 class="text-info"> <%= document.name_document %> </h3>
+    <%= t ".upload_by", name: document.user.name %></span>
+  <p class="content"> <%= t ".download_times", times: document.history_downloads.size %></p>
+  <span class="timestamp">
+    <%= t ".posted", time: time_ago_in_words(document.created_at) %>
+    <% if current_user? document.user %>
+      <%= link_to t(".del"), document, method: :delete,
+        data: {confirm: t(".confirm")} %>
+    <% end %>
+  </span>
+</li>

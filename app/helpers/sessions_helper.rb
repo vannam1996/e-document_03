@@ -41,9 +41,7 @@ module SessionsHelper
     cookies.delete :remember_token
   end
 
-  def logged_in_user
-    return if is_loged_in?
-    flash[:danger] = t "users.new.not_login"
-    redirect_to login_path
+  def current_user? user
+    user == current_user
   end
 end

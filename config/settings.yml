@@ -7,4 +7,7 @@ user:
   remember_me:
     check: "1"
   avatar: 100
-  avt_friend: 50
+  avatar: 150
+  avt_friend: 80
+documents:
+  no_downloaded: 0

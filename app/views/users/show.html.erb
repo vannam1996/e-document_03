@@ -5,5 +5,14 @@
     <%= render "friend_form" %>
   </aside>
   <div class="col-md-8" id="document">
+    <h3><%= @user.name.upcase %><%= t ".document" %></h3>
+    <% if @documents.any? %>
+      <ol class="documents">
+        <%= render @documents %>
+      </ol>
+      <%= will_paginate @documents %>
+    <% else %>
+      <p class="text-danger"><%= t ".not_have_doc" %></p>
+    <% end %>
   </div>
 </div>

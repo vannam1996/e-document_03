@@ -1,2 +1,19 @@
 <% provide :title, t(".home") %>
-<h1><%= t ".title" %></h1>
+<% if is_loged_in? %>
+<div class="row">
+  <aside class="col-md-4">
+    <%= render "shared/user_info" %>
+  </aside>
+  <div class="col-md-8">
+    <h3><%= t ".document" %></h3>
+    <% if @documents.any? %>
+      <ol class="documents">
+        <%= render @documents %>
+      </ol>
+      <%= will_paginate @documents %>
+    <% end %>
+  </div>
+</div>
+<% else %>
+  <h1><%= t ".title" %></h1>
+<% end %>
