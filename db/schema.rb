@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 20171203135135) do
     t.string "name_document"
     t.datetime "deleted_at"
     t.index ["category_id"], name: "index_documents_on_category_id"
-    t.index ["content"], name: "index_documents_on_content"
     t.index ["deleted_at"], name: "index_documents_on_deleted_at"
     t.index ["user_id", "created_at"], name: "index_documents_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_documents_on_user_id"

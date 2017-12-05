@@ -7,4 +7,5 @@ class Document < ApplicationRecord
   has_many :history_downloads, dependent: :destroy
 
   scope :order_by_created_at, ->{order created_at: :desc}
+  mount_uploader :content, DocumentUploader
 end

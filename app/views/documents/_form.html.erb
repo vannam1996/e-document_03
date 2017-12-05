@@ -1,0 +1,33 @@
+<%= form_for @document do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-default">
+          <div class="panel-heading"><strong><%= t ".title" %></strong></div>
+          <div class="panel-body">
+            <%= f.label :category_id, class: "form_control"  %>
+            <%= f.collection_select :category_id, @categories, :id, :style,
+              {prompt: true}, {class: "form-control"} %>
+
+            <div class="input-group file-preview">
+              <%= f.file_field :content, class: "form-control file-preview-filename",
+                accept: Settings.documents.file %>
+              <span class="input-group-btn">
+                <%= button_tag class: "btn btn-labeled btn-primary" do %>
+                  <span class="glyphicon glyphicon-upload"></span> <%= t ".btn_upload" %>
+                <% end %>
+              </span>
+            </div>
+
+            <div class="col-md-8 col-md-offset-2">
+            <%= f.label :name_document %>
+            <%= f.text_field :name_document, class: "form-control",
+              placeholder: t(".name_document") %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
