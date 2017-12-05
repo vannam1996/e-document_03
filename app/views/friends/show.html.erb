@@ -1,0 +1,12 @@
+<% provide :title, t(".title") %>
+<div class="row">
+  <aside class="col-md-4">
+    <%= render "shared/user_info" %>
+  </aside>
+  <div class="col-md-8">
+    <h3><%= t ".title" %></h3>
+    <% if @friends.any? %>
+      <%= render partial: "friend_request", collection: @friends, as: :friend  %>
+    <% end %>
+  </div>
+</div>

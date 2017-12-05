@@ -11,4 +11,8 @@ class Friend < ApplicationRecord
     accepter_list = Friend.accepter(user_id).status_request(true).pluck(:sender_id)
     sender_list + accepter_list
   end
+
+  def accept_request
+    update_attribute :is_accept, true
+  end
 end

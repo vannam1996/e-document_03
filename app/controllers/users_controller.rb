@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     @user = User.new params_user
     if @user.save
       flash[:success] = t "users.new.create_success"
+      log_in @user
       redirect_to @user
     else
       render :new

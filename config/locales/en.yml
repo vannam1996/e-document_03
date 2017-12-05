@@ -44,6 +44,8 @@ en:
       users: "Users"
       profile: "Profile"
       setting: "Setting"
+      friends: "Friends list"
+      upload: "Upload"
     footer:
       contact: "Contact"
       about: "About"
@@ -68,6 +70,22 @@ en:
     error_count: "The form contains"
     error_text: "error"
   users:
+    new:
+      title: "Sign Up"
+      descrip1: "This will be a signup page for new users."
+      passconfirm: "Confirmation"
+      btncreate: "Create account"
+      create_success: "Create success"
+      create_error: "Can't create create user"
+    flash:
+      errorshow: "Can't find user"
+      danger_login: "Please login"
+    add_friend:
+      send_request: "Add friend"
+    delete_friend:
+      delete_friend: "Delete friend"
+    index:
+      accept: "Accept"
     edit:
       title: "Edit"
       btn_save: "Update"
@@ -75,6 +93,7 @@ en:
     update:
       success: "Profile updated"
     show:
+      title: "Show User"
       error_message: "Not Found User"
       friend: "friends"
       requested: "requested"
@@ -102,3 +121,10 @@ en:
     destroy:
       success: "Delete friend success"
       fail: "Delete friend fail"
+    show:
+      title: "List Request"
+      confirm: "Accept friend"
+      add_arror: "Error accept"
+      success: "accept success"
+    flash:
+      error: "Can't find friend"
