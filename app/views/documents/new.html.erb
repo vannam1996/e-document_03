@@ -1,1 +1,32 @@
-<%= render "form"%>
+<div class="select_category">
+  <%= render "form"%>
+</div>
+
+<%= button_tag type: "button", class: "btn btn-primary",
+  data: {toggle: "modal", target: "#add-category"} do %>
+  <span class="glyphicon glyphicon-plus"></span>
+<% end %>
+<div class="modal fade" id="add-category" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <%= button_tag type: "button", class: "close", data: {dismiss: "modal"} do %>
+          &times;
+        <% end %>
+        <h4 class="modal-title"><%= t ".add_category" %></h4>
+      </div>
+
+      <div class="modal-body">
+        <%= text_field_tag "category", nil,
+          class: "form-control style", placeholder: t(".your_category") %>
+      </div>
+
+      <div class="modal-footer">
+        <%= button_tag type: "button",
+          class: "btn btn-primary center-block btn-add-category" do %>
+          <%= t ".submit" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

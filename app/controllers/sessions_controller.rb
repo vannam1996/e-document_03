@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
   def login_and_check_remember user
     log_in user
     params[:session][:remember_me] == Settings.user.remember_me.check ? remember(user) : forget(user)
+    flash[:success] = t "sessions.flash.login_success"
     redirect_to user
   end
 

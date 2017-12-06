@@ -2,6 +2,13 @@ class DocumentsController < ApplicationController
   before_action :logged_in_user, only: %i(new create destroy)
   before_action :correct_document, only: :destroy
 
+  def show
+    @document = Document.find_by id: params[:id]
+    return if @document
+    flash[:danger] = t "documents.show.fail"
+    redirect_to root_url
+  end
+
   def destroy
     if @document.destroy
       flash[:success] = t "documents.destroy.success"
@@ -13,6 +20,7 @@ class DocumentsController < ApplicationController
 
   def new
     @document = current_user.documents.build
+    @category = current_user.categories.build
     @categories = Category.all
   end
 
