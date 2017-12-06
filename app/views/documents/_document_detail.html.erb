@@ -1,0 +1,34 @@
+<section class="document_info">
+  <h1>
+    <%= @document.name_document %>
+  </h1>
+  <%= t "documents.document.upload_by", name: @document.user.name %>
+  <span class="timestamp">
+    <%= t "documents.document.posted", time: time_ago_in_words(@document.created_at) %>
+  </span>
+</section>
+
+<section class="stats">
+  <div class="stats">
+    <%= link_to "#" do %>
+      <%= t ".favorite" %>
+      <strong id="favorite" class="stat text-center">
+        <%= @document.history_downloads.size %>
+      </strong>
+    <% end %>
+
+    <%= link_to "#" do %>
+      <%= t ".favorite" %>
+      <strong id="favorite" class="stat text-center">
+        <%= @document.comments.size %>
+      </strong>
+    <% end %>
+
+    <%= link_to "#" do %>
+      <%= t ".favorite" %>
+      <strong id="favorite" class="stat text-center">
+        <%= @document.favorites.size %>
+      </strong>
+    <% end %>
+  </div>
+</section>

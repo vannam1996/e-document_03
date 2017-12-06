@@ -1,4 +1,5 @@
 <li id="document-<%= document.id %>">
+  <%= link_to document.name_document , document.content.url %>
   <span class="content">
     <h3 class="text-info"> <%= document.name_document %></h3>
     <%= t ".upload_by", name: document.user.name %>
