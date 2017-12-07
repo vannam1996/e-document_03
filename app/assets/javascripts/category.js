@@ -24,4 +24,26 @@ $(document).ready(function () {
       });
     }
   });
-})
+
+  $(".btn-search").click(function() {
+    var category_id = $("#category").val();
+    if (category_id == "")
+    {
+      alert(I18n.t("categories.create.style_invalid"));
+    }
+    else
+    {
+      $.ajax({
+        url: "/search_categories",
+        type: "POST",
+        data: {id: category_id},
+        success: function(result) {
+          $(".ajax-documents").html(result);
+        },
+        error: function (result) {
+          alert(I18n.t("categories.create.error"));
+        }
+      });
+    }
+  });
+});

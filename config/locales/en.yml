@@ -187,3 +187,8 @@ en:
       style_invalid: "style category is empty!"
       error: "error!"
       save_fail: "Can Not Excute!"
+  search_documents:
+    search_category:
+      not_found: "Not Found Documents"
+    search_name:
+      category: "Category"
