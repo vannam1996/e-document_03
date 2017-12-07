@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def show
     @documents = @user.documents.order_by_created_at.paginate page: params[:page]
+    @coin_values = CoinValue.all
   end
 
   def create

@@ -1,9 +1,55 @@
 <% provide :title, @user.name %>
 <div class="row">
   <aside class="col-md-4">
-    <%= render "shared/user_info" %>
+    <div id = "user-info">
+      <%= render "shared/user_info" %>
+    </div>
+
     <%= render "friend_form" %>
+    <% if current_user? @user %>
+
+      <%= button_tag type: "button", class: "btn btn-primary",
+        data: {toggle: "modal", target: "#buy-coin"} do %>
+        <span class="glyphicon glyphicon-plus"></span><%= t(".buy_coin") %>
+      <% end %>
+
+      <div class="modal fade" id="buy-coin" role="dialog">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <%= button_tag type: "button", class: "close", data: {dismiss: "modal"} do %>
+                &times;
+              <% end %>
+              <h4 class="modal-title"><%= t ".buy_coin" %></h4>
+            </div>
+
+            <div class="modal-body">
+              <div class="modal-body">
+
+                <%= collection_select :coin_value, "select", @coin_values, :cost_per_coin,
+                  :type_buy, {prompt: true}, {class: "form-control", id: "select"} %>
+
+                <%= label_tag "label", t(".label_cost") %> <b id = "cost-per-coin"></b>
+
+                <%= number_field_tag "input-coin", Settings.user.default_buy,
+                  class: "form-control coin-want-buy", placeholder: t(".placeholer_coin") %>
+
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <%= button_tag type: "button",
+                class: "btn btn-primary center-block btn-buy-coin" do %>
+                <%= t ".submit" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </aside>
+
   <div class="col-md-8" id="document">
     <h3><%= @user.name.upcase %><%= t ".document" %></h3>
     <% if @documents.any? %>

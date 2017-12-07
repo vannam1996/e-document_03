@@ -8,6 +8,7 @@ user:
     check: "1"
   avatar: 150
   avt_friend: 80
+  default_buy: 1
 documents:
   file: ".pdf"
 category:
