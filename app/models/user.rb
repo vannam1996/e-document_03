@@ -31,6 +31,7 @@ class User < ApplicationRecord
   scope :request_friends, ->(user_ids){where id: user_ids}
   scope :order_by_created_at, ->{order created_at: :desc}
   scope :status_admin, ->(status){where "is_admin = ?", status}
+  scope :not_login, ->(datetime){where "login_last_at < ?", datetime}
 
   def remember
     self.remember_token = User.new_token
@@ -39,6 +40,10 @@ class User < ApplicationRecord
 
   def forget
     update_attribute :remember_digest, nil
+  end
+
+  def update_login_last
+    update_attribute :login_last_at, Time.zone.now
   end
 
   def authenticated? attribute, token
