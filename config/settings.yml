@@ -11,4 +11,4 @@ user:
 documents:
   file: ".pdf"
 category:
-  maximum_style: 20
+  maximum_style: 30

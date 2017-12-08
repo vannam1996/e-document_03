@@ -13,6 +13,10 @@ class HistoryDownloadsController < ApplicationController
     end
   end
 
+  def index
+    @histories = current_user.history_downloads.paginate page: params[:page]
+  end
+
   private
 
   def find_document
