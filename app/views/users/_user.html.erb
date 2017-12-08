@@ -1,0 +1,10 @@
+<li>
+  <%= image_tag user.avatar.url, class: "img-circle", size: Settings.user.avatar %>
+  <%= link_to user.name, user %>
+  <% if current_user.is_admin? && !current_user?(user) %>
+    | <%= link_to t(".del"), user, method: :delete,
+    data: {confirm: t(".confirm")} %>
+    | <%= link_to t(".admin"), user, method: :patch,
+    data: {confirm: t(".confirm")} %>
+  <% end %>
+</li>

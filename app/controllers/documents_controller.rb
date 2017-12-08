@@ -4,7 +4,13 @@ class DocumentsController < ApplicationController
   before_action :find_document, only: :show
   before_action :load_data_comment, only: :show
 
-  def show; end
+  def show
+    @document = Document.find_by id: params[:id]
+    @comment = current_user.comments.build
+    return if @document
+    flash[:danger] = t "documents.show.fail"
+    redirect_to root_url
+  end
 
   def destroy
     if @document.destroy

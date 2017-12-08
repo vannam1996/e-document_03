@@ -58,23 +58,6 @@ en:
       document: "Documents"
   hello: "Hello world"
   title: "Edocument"
-  users:
-    new:
-      title: "Sign Up"
-      descrip1: "This will be a signup page for new users."
-      passconfirm: "Confirmation"
-      btncreate: "Create account"
-      create_success: "Create success"
-      create_error: "Can't create user"
-    show:
-      title: "Show User"
-    flash:
-      errorshow: "Can't find user"
-      danger_login: "Please login"
-    add_friend:
-      send_request: "Add friend"
-    index:
-      accept: "Accept"
   sessions:
     new:
       email: "Email Address"
@@ -92,6 +75,8 @@ en:
     error_count: "The form contains"
     error_text: "error"
   users:
+    add_friend:
+      send_request: "Add friend"
     new:
       title: "Sign Up"
       descrip1: "This will be a signup page for new users."
@@ -109,12 +94,15 @@ en:
       delete_friend: "Delete friend"
     index:
       accept: "Accept"
+      title: "Users"
     edit:
       title: "Edit"
       btn_save: "Update"
       str1: "Edit Profile User"
     update:
       success: "Profile updated"
+      admin_success: "Upgrade Admin Success"
+      admin_fail: "Upgrade Admin Fails"
     show:
       title: "Show User"
       error_message: "Not Found User"
@@ -140,6 +128,10 @@ en:
       del: "Delete"
     friended:
       title: "Friends List"
+    user:
+      del: "Delete"
+      admin: "Upgrade to Admin"
+      confirm: "Are You Sure ?"
   friends:
     destroy:
       success: "Delete friend success"
@@ -180,6 +172,9 @@ en:
       name_document: "Your Name Document..."
     show:
       fail: "Not Found Document"
+    comment_form:
+      comment: "Input comment"
+      btn_comment: "Comment"
   history_downloads:
     success: "download success"
     error: "error download"
@@ -187,9 +182,6 @@ en:
       title: "History Downloads"
       name_doc: "Name Document"
       time: "Time"
-    comment_form:
-      comment: "Input comment"
-      btn_comment: "Comment"
   categories:
     create:
       style_invalid: "style category is empty!"
@@ -220,3 +212,8 @@ en:
     reply_comment_form:
       comment: "Input your comment"
       reply: "Reply"
+    modal_report:
+      head: "Report"
+    report:
+      reported: "Reported"
+      report: "Report"

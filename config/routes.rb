@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   delete "/unfriend", to: "friends#destroy"
   post "/search_name_document", to: "search_documents#search_name"
   post "/search_categories", to: "search_documents#search_category"
+  post "/create_report", to:"comments#create"
 
   resources :users
   resources :friends
