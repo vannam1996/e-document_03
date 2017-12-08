@@ -187,6 +187,9 @@ en:
       title: "History Downloads"
       name_doc: "Name Document"
       time: "Time"
+    comment_form:
+      comment: "Input comment"
+      btn_comment: "Comment"
   categories:
     create:
       style_invalid: "style category is empty!"
@@ -197,11 +200,23 @@ en:
       not_found: "Not Found Documents"
     search_name:
       category: "Category"
-  search_documents:
-    search_category:
-      not_found: "Not Found Documents"
   favorites:
     index:
       name_doc: "Name Document"
       time: "Time"
       favorite: "Favorite"
+  history_download:
+    success: "download success"
+    error: "error download"
+  comments:
+    comment:
+      show_reply: "Show comment reply"
+      del: "delete"
+      comment_success: "Comment success"
+      comment_error: "Comment error"
+      del_success: "Delete comment"
+      del_error: "Delete error"
+      find_error: "Can't find comment"
+    reply_comment_form:
+      comment: "Input your comment"
+      reply: "Reply"

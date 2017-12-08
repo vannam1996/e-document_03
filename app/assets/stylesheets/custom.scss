@@ -328,3 +328,64 @@ aside {
   background-color: $White;
   border-color: $gray80;
 }
+
+/*comment list*/
+
+.media .media-object {
+  max-width: 120px;
+}
+
+.media-body {
+  position: relative;
+}
+
+.media-date {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+}
+
+.media-date li {
+  padding: 0;
+}
+
+.media-date li:before {
+  margin-left: -2px;
+  margin-right: 2px;
+}
+
+.media-comment {
+  margin-bottom: 20px;
+}
+
+.media-replied {
+  margin: 0 0 20px 50px;
+}
+
+.media-replied .media-heading {
+  padding-left: 6px;
+}
+
+.btn-circle {
+  font-weight: bold;
+  font-size: 12px;
+  padding: 6px 15px;
+  border-radius: 20px;
+}
+
+/*reply comments*/
+.reply{
+  width: 300px;
+}
+
+input[type="submit"] {
+    width: 100px;
+}
+
+.reply-date {
+  float: right;
+}
+
+.list-group{
+  padding-top: 15px;
+}
