@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20171207141406) do
     t.decimal "cost_per_coin", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "type_buy"
   end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -55,7 +56,7 @@ ActiveRecord::Schema.define(version: 20171207141406) do
   create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
     t.bigint "document_id"
-    t.boolean "is_favorite"
+    t.boolean "is_favorite", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["document_id"], name: "index_favorites_on_document_id"
