@@ -8,6 +8,8 @@ class Category < ApplicationRecord
     length: {maximum: Settings.category.maximum_style},
     uniqueness: true
 
+  scope :order_by_updated_at, ->{order updated_at: :desc}
+
   def downcase_style
     self.style = style.downcase
   end

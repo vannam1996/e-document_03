@@ -1,0 +1,15 @@
+<tr id="category-<%= category.id %>">
+  <td class="text-center" id="style-<%= category.id %>"><%= category.style %></td>
+  <td class="text-center"><%= l category.updated_at.localtime, format: :long %></td>
+  <td class="text-center"><%= category.user.name %></td>
+  <td class="text-center"><%= category.documents.size %></td>
+  <td class="text-center">
+    <%= link_to "#", class: "modal-edit",
+      data: {toggle: "modal", target: "#style", id: category.id} do %>
+      <span class="glyphicon glyphicon-edit"></span>
+    <% end %>
+    <%= link_to "#", class: "btn-remove", data: {id: category.id, confirm: t(".confirm")} do %>
+      <span class="glyphicon glyphicon-floppy-remove"></span>
+    <% end %>
+  </td>
+</tr>

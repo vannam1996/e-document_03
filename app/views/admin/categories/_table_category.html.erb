@@ -1,0 +1,45 @@
+<h3 class="text-center"><%= t ".title" %></h3>
+<p class="text-danger text-center fail"></p>
+<p class="text-success text-center success"></p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="text-center"><%= t ".name" %></th>
+      <th class="text-center"><%= t ".time" %></th>
+      <th class="text-center"><%= t ".own" %></th>
+      <th class="text-center"><%= t ".number_document" %></th>
+      <th class="text-center"><%= t ".command" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @categories.any? %>
+      <%= render @categories %>
+    <% end %>
+    <%= will_paginate @categories %>
+  </tbody>
+</table>
+
+<div class="modal fade" id="style" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <%= button_tag type: "button", class: "close", data: {dismiss: "modal"} do %>
+          &times;
+        <% end %>
+        <h4 class="modal-title"><%= t ".head" %></h4>
+      </div>
+
+      <div class="modal-body">
+        <%= text_area_tag "comment", nil, class: "form-control content" %>
+        <%= hidden_field_tag "category-id" %>
+      </div>
+
+      <div class="modal-footer">
+        <%= button_tag type: "button",
+          class: "btn btn-primary center-block btn-edit" do %>
+          <%= t ".update" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
