@@ -21,5 +21,7 @@ Rails.application.routes.draw do
   resources :history_downloads, only: %i(index create)
   resources :transactions, only: :create
   resources :favorites, only: %i(index create destroy)
-  resources :comments, only: %i(create destroy)
+  namespace :admin do
+    resources :categories, only: %i(index destroy update)
+  end
 end

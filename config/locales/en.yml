@@ -48,6 +48,7 @@ en:
       upload: "Upload"
       history: "History Download"
       doc_report: "Documents Reported"
+      category: "categories"
     footer:
       contact: "Contact"
       about: "About"
@@ -261,3 +262,25 @@ en:
     un_success: "Unfavorite success"
     un_error: "Unfavorite error"
     error_find: "Can't find favorite"
+
+  admin:
+    categories:
+      not_admin: "You Aren't Admin"
+      table_category:
+        name: "Name"
+        time: "Created At"
+        number_document: "Number Documents"
+        command: "Command"
+        own: "Own"
+      table_category:
+        title: "List Categories"
+        head: "Edit Category"
+        update: "Update"
+      destroy:
+        fail: "Can't Not Delete This Category"
+        success: "Delete Is Success!"
+      update:
+        fail: "Can't Not Update This Category"
+        success: "Update Is Success!"
+      category:
+        confirm: "Are You Want Delete This Category?"
