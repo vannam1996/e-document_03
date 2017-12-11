@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :transactions, dependent: :nullify
   has_many :favorites, dependent: :destroy
   has_many :history_downloads, dependent: :destroy
+  has_many :history_views, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :categories, dependent: :nullify
   has_many :documents, dependent: :destroy
@@ -61,6 +62,10 @@ class User < ApplicationRecord
 
   def is_friend? other_user
     sending.include?(other_user) || accepting.include?(other_user)
+  end
+
+  def is_favorite? document_id
+    self.favorites.find_by document_id: document_id
   end
 
   private

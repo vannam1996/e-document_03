@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
   resources :categories, only: :create
   resources :history_downloads, only: %i(index create)
-  resources :favorites, only: :index
   resources :transactions, only: :create
+  resources :favorites, only: %i(index create destroy)
+  resources :comments, only: %i(create destroy)
 end

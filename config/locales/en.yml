@@ -178,6 +178,7 @@ en:
       posted: "Posted %{time} Ago"
       download_times: "Downloads: %{times} times"
       view_detail: "View Details"
+      save_history: "Error save history"
     document_detail:
       download_times: "Download times"
       comments: "Comments"
@@ -252,3 +253,11 @@ en:
     error_coin: "Coin must > 0"
     buy_error: "Buy error"
     save_fail: "Save fail"
+  favorite:
+    btn_add: "Favorite"
+    btn_un: "Unfavorite"
+    add_success: "Add success"
+    add_error: "Add error"
+    un_success: "Unfavorite success"
+    un_error: "Unfavorite error"
+    error_find: "Can't find favorite"
