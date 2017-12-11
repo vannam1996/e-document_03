@@ -48,7 +48,7 @@
       </strong>
     <% end %>
 
-    <%= link_to search_deleted_url(id: @user.id) do %>
+    <%= link_to search_deleted_url(@user.id) do %>
       <%= t ".document_delete" %>
       <strong id="document_delete" class="stat text-center">
         <%= @user.documents.only_deleted.size %>

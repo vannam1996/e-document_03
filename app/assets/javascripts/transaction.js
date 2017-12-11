@@ -33,4 +33,36 @@ $(document).ready(function () {
       });
     }
   });
+
+  $(".btn-confirm").click(function() {
+    var transaction_id = $(this).attr("data-id");
+    if (transaction_id == "")
+    {
+      alert(I18n.t("categories.create.style_invalid"));
+    }
+    else
+    {
+      $.ajax({
+        url: "/admin/transactions/"+transaction_id,
+        type: "PATCH",
+        data: {id: transaction_id},
+        success: function(result) {
+          if (result.success === true && result != null)
+          {
+            $("#transaction-" + transaction_id).remove();
+            $(".success").text(result.response_text);
+            $(".fail").text("");
+          }
+          else
+          {
+            $(".success").text("");
+            $(".fail").text(result.response_text);
+          }
+        },
+        error: function (result) {
+          alert(I18n.t("categories.create.error"));
+        }
+      });
+    }
+  });
 });

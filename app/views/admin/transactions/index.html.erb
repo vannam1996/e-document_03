@@ -1,0 +1,21 @@
+<h3 class="text-center"><%= t ".title" %></h3>
+<p class="text-danger text-center fail"></p>
+<p class="text-success text-center success"></p>
+<div class="row">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th><%= t ".name" %></th>
+        <th><%= t ".coin" %></th>
+        <th><%= t ".cost" %></th>
+        <th><%= t ".time" %></th>
+        <th><%= t ".command" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @transactions.any? %>
+        <%= render @transactions %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -19,7 +19,7 @@ class SearchDocumentsController < ApplicationController
   end
 
   def search_deleted
-    user = User.find_by id: params[:id]
+    user = User.find_by id: params[:format]
     @documents = user.documents.only_deleted.paginate page: params[:page]
   end
 end
