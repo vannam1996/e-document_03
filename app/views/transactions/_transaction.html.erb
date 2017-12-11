@@ -1,0 +1,6 @@
+<tr id="transaction-<%= transaction.id %>">
+  <td><%= transaction.user.name %></td>
+  <td><%= transaction.coin %></td>
+  <td><%= transaction.cost_at_buy %></td>
+  <td><%= l transaction.created_at.localtime, format: :long %></td>
+</tr>
