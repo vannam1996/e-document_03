@@ -1,0 +1,20 @@
+<div class="row">
+  <h3 class="text-center"><%= t ".title" %></h3>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th><%= t ".name_doc" %></th>
+        <th><%= t ".time" %></th>
+        <th><%= t ".reported" %></th>
+        <th><%= t ".comments" %></th>
+        <th><%= t ".del" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @documents.any? %>
+        <%= render partial: "search_documents/list_reported", collection: @documents, as: :document %>
+      <% end %>
+      <%= will_paginate @documents %>
+    </tbody>
+  </table>
+</div>

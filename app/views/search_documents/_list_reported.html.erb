@@ -1,0 +1,43 @@
+<tr id="document-<%= document.id %>">
+  <td><%= link_to document.name_document, document_path(document) %></td>
+  <td><%= l document.created_at.localtime, format: :long %></td>
+  <td><%= @reports[document.id].size %></td>
+  <td>
+    <%= button_tag type: "button", class: "btn btn-warning btn-sm",
+      data: {toggle: "modal", target: "#comment-report-#{document.id}"} do %>
+      <span class="glyphicon glyphicon-plus"></span>
+    <% end %>
+  </td>
+  <td>
+    <% if @reports[document.id].size >= Settings.documents.illegal %>
+      <%= link_to document, method: :delete, class: "btn btn-danger btn-sm" do %>
+        <span class="glyphicon glyphicon-remove"></span>
+      <% end %>
+    <% else %>
+      <%= link_to '#', class: "btn btn-default btn-sm disabled" do %>
+        <span class="glyphicon glyphicon-remove"></span>
+      <% end %>
+    <% end %>
+  </td>
+</tr>
+
+<div class="modal fade" id="comment-report-<%= document.id %>" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <%= button_tag type: "button", class: "close", data: {dismiss: "modal"} do %>
+          &times;
+        <% end %>
+        <h4 class="modal-title"><%= t ".head" %></h4>
+      </div>
+
+      <div class="modal-body">
+        <ul>
+          <% @reports[document.id].each do |cmt| %>
+            <li><%= cmt.content %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
