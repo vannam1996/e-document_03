@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post "/search_categories", to: "search_documents#search_category"
   post "/create_report", to:"comments#create"
   get "/search_report", to: "search_documents#search_reported"
+  get "/search_deleted", to: "search_documents#search_deleted"
 
   resources :users
   resources :friends

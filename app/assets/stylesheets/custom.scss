@@ -329,12 +329,6 @@ aside {
   border-color: $gray80;
 }
 
-.btn-add {
-  position: fixed;
-  top: 105px;
-  left: 380px;
-}
-
 /*comment list*/
 
 .media .media-object {
@@ -400,4 +394,14 @@ input[type="submit"] {
 
 .btn-remove {
   margin-left: 15px;
+}
+
+.category-search {
+  margin-top: 15px;
+}
+
+.btn-add {
+  position: relative;
+  top: -230px;
+  left: 290px;
 }

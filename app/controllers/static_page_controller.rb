@@ -3,5 +3,6 @@ class StaticPageController < ApplicationController
     return unless is_loged_in?
     @user = current_user
     @documents = Document.order_by_created_at.paginate page: params[:page]
+    @categories = Category.all
   end
 end

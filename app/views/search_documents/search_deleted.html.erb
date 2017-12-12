@@ -1,10 +1,6 @@
 <div class="row">
-  <div class="search-category">
-    <%= render "form_search_category" %>
-  </div>
-
   <h3 class="text-center"><%= t ".document" %></h3>
-  <div class="col-md-offset-2 ajax-documents">
+  <div class="col-md-offset-2">
     <% if @documents.any? %>
       <ol class="documents">
         <%= render @documents %>

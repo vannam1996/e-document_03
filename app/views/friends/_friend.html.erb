@@ -2,7 +2,7 @@
   <%= image_tag friend.avatar.url, class: "img-circle", size: Settings.user.avt_friend %>
   <%= link_to friend.name, friend %>
   <% if current_user? @user %>
-    | <%= link_to t("users.index.del"), unfriend_path(id: friend.id), method: :delete,
+    | <%= link_to t("users.show_friend.del"), unfriend_path(id: friend.id), method: :delete,
       data: {confirm: t("users.show_friend.confirm")} %>
   <% end %>
 </li>

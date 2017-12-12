@@ -5,13 +5,18 @@
     <%= render "shared/user_info" %>
   </aside>
   <div class="col-md-8">
+    <div class="search-category">
+      <%= render "search_documents/form_search_category" %>
+    </div>
     <h3><%= t ".document" %></h3>
-    <% if @documents.any? %>
-      <ol class="documents">
-        <%= render @documents %>
-      </ol>
-      <%= will_paginate @documents %>
-    <% end %>
+    <div class="ajax-documents">
+      <% if @documents.any? %>
+        <ol class="documents">
+          <%= render @documents %>
+        </ol>
+        <%= will_paginate @documents %>
+      <% end %>
+    </div>
   </div>
 </div>
 <% else %>

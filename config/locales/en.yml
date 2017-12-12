@@ -61,27 +61,7 @@ en:
       document: "Documents"
   hello: "Hello world"
   title: "Edocument"
-  users:
-    new:
-      title: "Sign Up"
-      descrip1: "This will be a signup page for new users."
-      passconfirm: "Confirmation"
-      btncreate: "Create account"
-      create_success: "Create success"
-      create_error: "Can't create user"
-    show:
-      title: "Show User"
-      buy_coin: "Buy coin"
-      placeholer_coin: "Input coin"
-      cost: "Cost per coin: "
-      submit: "Buy coin"
-    flash:
-      errorshow: "Can't find user"
-      danger_login: "Please login"
-    add_friend:
-      send_request: "Add friend"
-    index:
-      accept: "Accept"
+
   sessions:
     new:
       email: "Email Address"
@@ -109,6 +89,7 @@ en:
       btncreate: "Create account"
       create_success: "Create success"
       create_error: "Can't create create user"
+      not_login: "Not Login"
     flash:
       danger_login: "Please login"
       error_show: "Can't find user"
@@ -129,6 +110,10 @@ en:
       admin_success: "Upgrade Admin Success"
       admin_fail: "Upgrade Admin Fails"
     show:
+      buy_coin: "Buy coin"
+      placeholer_coin: "Input coin"
+      cost: "Cost per coin:"
+      submit: "Buy coin"
       title: "Show User"
       error_message: "Not Found User"
       friend: "friends"
@@ -141,14 +126,6 @@ en:
       document: "'s Documents"
       not_have_doc: "No Have Documents"
       label-cost: Cost per coin"
-    new:
-      title: "Sign Up"
-      descrip1: "This will be a signup page for new users."
-      passconfirm: "Confirmation"
-      btncreate: "Create account"
-      create_success: "Create success"
-      create_error: "Can't create create user"
-      not_login: "Not Login"
     show_friend:
       confirm: "Are you sure?"
       del: "Delete"
@@ -174,9 +151,7 @@ en:
       success: "Deleted Document Success"
       fail: "Not Deleted Document"
     document:
-      open_document: "Open document"
       confirm: "Are you sure?"
-      del: "Delete"
       upload_by: "Upload by %{name}"
       posted: "Posted %{time} Ago"
       download_times: "Downloads: %{times} times"
