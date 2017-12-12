@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
     user = User.find_by email: params[:session][:email].downcase
     if user && user.authenticate(params[:session][:password])
       login_and_check_remember user
+      user.update_login_last
     else
       flash_login_error
     end

@@ -29,6 +29,7 @@ gem "paranoia", "~> 2.2"
 gem "i18n-js"
 gem "jquery-turbolinks"
 gem "figaro", "~> 1.1", ">= 1.1.1"
+gem "whenever", require: false
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

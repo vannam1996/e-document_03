@@ -290,3 +290,7 @@ en:
     upload_success:
       title: "E-document"
       notice: "Your document has been uploaded"
+  user_mailer:
+    mail_user:
+      title: "E-document"
+      notice: "You not login e-document in three day"
