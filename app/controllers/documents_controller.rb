@@ -14,7 +14,10 @@ class DocumentsController < ApplicationController
   end
 
   def destroy
-    if current_user.is_admin? && document_illegal?(@document) || correct_document?(@document)
+    if current_user.is_admin? && document_illegal?(@document)
+      @document.update_attribute :is_illegal, true
+      delete_document @document
+    elsif correct_document?(@document)
       delete_document @document
     else
       flash[:danger] = t "documents.destroy.fail"

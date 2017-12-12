@@ -1,0 +1,19 @@
+<h3 class="text-center"><%= t ".title" %></h3>
+<p class="text-danger text-center fail"></p>
+<p class="text-success text-center success"></p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="text-center"><%= t".name_user" %></th>
+      <th class="text-center"><%= t".number_illegal" %></th>
+      <th class="text"><%= t".view" %></th>
+      <th class="text-center"><%= t".delete" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @users.any? %>
+      <%= render @users %>
+    <% end %>
+    <%= will_paginate @users %>
+  </tbody>
+</table>

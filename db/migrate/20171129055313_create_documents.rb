@@ -1,8 +1,8 @@
 class CreateDocuments < ActiveRecord::Migration[5.1]
   def change
     create_table :documents do |t|
-      t.references :user, foreign_key: true
-      t.references :category, foreign_key: true
+      t.references :user
+      t.references :category
       t.string :content
 
       t.timestamps

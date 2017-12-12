@@ -1,0 +1,36 @@
+<tr id="user-<%= user.id %>">
+  <td class="text-center" id="name-<%= user.id %>"><%= user.name %></td>
+  <td class="text-center"><%= @documents[user.id].size %></td>
+  <td>
+    <%= button_tag type: "button", class: "btn btn-warning btn-sm",
+      data: {toggle: "modal", target: "#document-#{user.id}"} do %>
+      <span class="glyphicon glyphicon-plus"></span>
+    <% end %>
+  </td>
+  <td class="text-center">
+    <%= link_to "#", class: "btn-ban-user", data: {id: user.id, confirm: t(".confirm")} do %>
+      <span class="glyphicon glyphicon-floppy-remove"></span>
+    <% end %>
+  </td>
+</tr>
+
+<div class="modal fade" id="document-<%= user.id %>" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <%= button_tag type: "button", class: "close", data: {dismiss: "modal"} do %>
+          &times;
+        <% end %>
+        <h4 class="modal-title"><%= t ".head" %></h4>
+      </div>
+
+      <div class="modal-body">
+        <ul>
+          <% @documents[user.id].each do|document| %>
+            <li><%= document.name_document %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

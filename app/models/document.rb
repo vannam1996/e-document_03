@@ -11,6 +11,7 @@ class Document < ApplicationRecord
   scope :search_name, ->(name_doc){where "name_document LIKE ?", "%#{name_doc}%"}
   scope :search_category, ->(category_id){where "category_id = ?", category_id}
   scope :search_id, ->(document_ids){where "id IN (?)", document_ids}
+  scope :status_illegal, ->(status){where is_illegal: status}
 
   mount_uploader :content, DocumentUploader
 end
