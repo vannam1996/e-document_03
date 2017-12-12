@@ -1,5 +1,6 @@
 <%= form_for @user do |f| %>
   <%= render "shared/error_messages", object: f.object %>
+  <%= f.hidden_field :is_admin,value: params[:is_admin] %>
 
   <%= f.label :name %>
   <%= f.text_field :name, class: "form-control" %>

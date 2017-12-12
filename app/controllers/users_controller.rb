@@ -16,12 +16,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new params_user
-    if @user.save
-      flash[:success] = t "users.new.create_success"
-      log_in @user
-      redirect_to @user
+    if @user.is_admin? && current_user.is_admin?
+      save_admin
     else
-      render :new
+      @user.is_admin = false
+      save_user
     end
   end
 
@@ -39,8 +38,27 @@ class UsersController < ApplicationController
 
   private
 
+  def save_admin
+    if @user.save
+      flash[:success] = t "users.new.create_success"
+      redirect_to root_url
+    else
+      render :new
+    end
+  end
+
+  def save_user
+    if @user.save
+      flash[:success] = t "users.new.create_success"
+      log_in @user
+      redirect_to @user
+    else
+      render :new
+    end
+  end
+
   def params_user
-    params.require(:user).permit :name, :email, :password, :password_confirmation, :avatar
+    params.require(:user).permit :name, :email, :password, :password_confirmation, :avatar, :is_admin
   end
 
   def find_user

@@ -17,3 +17,5 @@ category:
 comments:
   per_page: 8
   minimum_content: 10
+mailer:
+  default: "from@example.com"
