@@ -406,7 +406,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   config
   faker
-  figaro (~> 1.1, >= 1.1.1)
+  figaro
   fog (= 1.40.0)
   i18n-js
   jbuilder (~> 2.5)

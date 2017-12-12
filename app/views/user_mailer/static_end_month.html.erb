@@ -1,0 +1,19 @@
+<h1><%= t ".title" %></h1>
+<h2><%= t ".head" %><%= Time.now.month %></h2>
+<p><%= t ".introduce" %><%= Time.now.month %>:</p>
+<table>
+  <thead>
+    <tr>
+      <th><%= t ".name" %></th>
+      <th><%= t ".coin" %></th>
+      <th><%= t ".cost" %></th>
+      <th><%= t ".time" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @transactions.any? %>
+      <%= render @transactions %>
+    <% end %>
+  </tbody>
+</table>
+<h2><%= t ".total" %><%= @total %></h2>

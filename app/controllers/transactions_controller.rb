@@ -5,6 +5,7 @@ class TransactionsController < ApplicationController
       @transaction.errors.add :save, t("transaction.save_fail")
     end
     update_coin
+    UserMailer.buy_coin(@user,@transaction).deliver_now
     render partial: "shared/user_info"
   end
 

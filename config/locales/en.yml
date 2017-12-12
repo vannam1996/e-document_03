@@ -265,6 +265,29 @@ en:
     un_success: "Unfavorite success"
     un_error: "Unfavorite error"
     error_find: "Can't find favorite"
+
+  user_mailer:
+    static_end_month:
+      name: "Name"
+      coin: "Coins"
+      cost: "Cost Per Coin"
+      time: "Time"
+      head: "Statistic Month:"
+      introduce: "This is statistic of month"
+      total: "Revenue Total:"
+      subject: "statistic end of month"
+    buy_coin:
+      greeting: "Thank you for your transactions!"
+      content: "You were bought: %{coin} with cost per coin: %{cost}"
+      subject: "Confirm Buy Coin"
+    mail_user:
+      title: "E-document"
+      notice: "You not login e-document in three day"
+  document_mailer:
+    upload_success:
+      title: "E-document"
+      notice: "Your document has been uploaded"
+
   admin:
     categories:
       not_admin: "You Aren't Admin"
@@ -286,11 +309,4 @@ en:
         success: "Update Is Success!"
       category:
         confirm: "Are You Want Delete This Category?"
-  document_mailer:
-    upload_success:
-      title: "E-document"
-      notice: "Your document has been uploaded"
-  user_mailer:
-    mail_user:
-      title: "E-document"
-      notice: "You not login e-document in three day"
+
