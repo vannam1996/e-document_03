@@ -68,14 +68,6 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  def correct_user
-    return if current_user.is_admin?
-    @user = User.find_by id: params[:id]
-    return if current_user? @user
-    flash[:danger] = t "users.flash.not_correct_user"
-    redirect_to root_path
-  end
-
   def update_admin user
     if user.update_attribute :is_admin, true
       flash[:success] = t "users.update.admin_success"

@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include CommentsHelper
   include DocumentsHelper
+  include UsersHelper
 
   def logged_in_user
     return if is_loged_in?
