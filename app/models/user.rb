@@ -28,7 +28,7 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   scope :friend_of_user, ->(array_friends_id){where "id IN (?)", array_friends_id}
-  scope :request_friends, ->(user_ids){where id: user_ids}
+  scope :user_by_ids, ->(user_ids){where id: user_ids}
   scope :order_by_created_at, ->{order created_at: :desc}
   scope :status_admin, ->(status){where "is_admin = ?", status}
   scope :not_login, ->(datetime){where "login_last_at < ?", datetime}

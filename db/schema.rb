@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20171211092447) do
     t.datetime "updated_at", null: false
     t.string "name_document"
     t.datetime "deleted_at"
+    t.boolean "is_illegal", default: false
     t.index ["category_id"], name: "index_documents_on_category_id"
     t.index ["deleted_at"], name: "index_documents_on_deleted_at"
     t.index ["user_id", "created_at"], name: "index_documents_on_user_id_and_created_at"
@@ -119,7 +120,4 @@ ActiveRecord::Schema.define(version: 20171211092447) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["name"], name: "index_users_on_name"
   end
-
-  add_foreign_key "history_views", "documents"
-  add_foreign_key "history_views", "users"
 end
