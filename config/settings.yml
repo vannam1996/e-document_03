@@ -19,3 +19,7 @@ comments:
   minimum_content: 10
 mailer:
   default: "from@example.com"
+history_downloads:
+  down_times: 1
+  max_down_free: 3
+  cost_per_down: 10

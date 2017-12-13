@@ -204,9 +204,10 @@ en:
       name_doc: "Name Document"
       time: "Time"
       favorite: "Favorite"
-  history_download:
-    success: "download success"
+  history_downloads:
     error: "error download"
+    create:
+      not_enough_coin: "Not Enough Coin. Please Buy Coin."
     index:
       title: "History Downloads"
       name_doc: "Name Document"
@@ -262,15 +263,19 @@ en:
       title: "Transaction Success"
       greeting: "Your transaction was success"
       content: "You were bought: %{coin}. Current coins are %{coin_current}"
-      subject: "Confirm Buy Coin"
+      subject: "Added Coin"
+    ignore_transaction:
+      subject: "Ignore Transaction"
+      greeting: "Your transaction was failure"
+      content: "Your transaction at %{time} with %{coin} coins was ignored"
 
   document_mailer:
     upload_success:
       title: "E-document"
       notice: "Your document has been uploaded"
   admin:
+    not_admin: "You Aren't Admin"
     categories:
-      not_admin: "You Aren't Admin"
       table_category:
         name: "Name"
         time: "Created At"
@@ -298,3 +303,11 @@ en:
           number_illegal: "Number document illegal"
           view: "View document illegal"
           delete: "Delete user"
+    transactions:
+      not_found: "Not Found Information"
+      destroy:
+        success: "Transaction Was Destroy"
+        fail: "Transaction Can't Destroy"
+      update:
+        success: "Confirm Success"
+        fail: "Confirm failure"

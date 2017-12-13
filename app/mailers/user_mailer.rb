@@ -23,4 +23,10 @@ class UserMailer < ApplicationMailer
     @transaction = transaction
     mail to: user.email, subject: t("user_mailer.added_coin.subject")
   end
+
+  def ignore_transaction user, transaction
+    @user = user
+    @transaction = transaction
+    mail to: user.email, subject: t("user_mailer.ignore_transaction.subject")
+  end
 end
