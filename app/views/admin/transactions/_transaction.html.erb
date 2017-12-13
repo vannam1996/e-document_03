@@ -1,0 +1,12 @@
+<tr id="transaction-<%= transaction.id %>">
+  <td><%= transaction.user.name %></td>
+  <td><%= transaction.coin %></td>
+  <td><%= transaction.cost_at_buy %></td>
+  <td><%= l transaction.created_at.localtime, format: :short %></td>
+  <td>
+    <%= link_to "#", class: "btn-confirm", data: {id: transaction.id} do %>
+      <%= t ".accept" %>
+    <% end %>
+    | <%= link_to "Ignore", "#", class: "btn-ignore", data: {id: transaction.id}  %>
+  </td>
+</tr>

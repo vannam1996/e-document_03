@@ -7,7 +7,7 @@ class UserMailer < ApplicationMailer
   def buy_coin user, transaction
     @user = user
     @transaction = transaction
-    mail to: user.email, subject: t(".subject")
+    mail to: user.email, subject: t("user_mailer.buy_coin.subject")
   end
 
   def static_end_month users, transactions, total
@@ -15,6 +15,12 @@ class UserMailer < ApplicationMailer
     @transactions = transactions
     @total = total
     mail to: users.map(&:email).uniq,
-      subject: t(".subject")
+      subject: t("user_mailer.static_end_month.subject")
+  end
+
+  def added_coin user, transaction
+    @user = user
+    @transaction = transaction
+    mail to: user.email, subject: t("user_mailer.added_coin.subject")
   end
 end

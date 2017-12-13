@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171211042403) do
+ActiveRecord::Schema.define(version: 20171211092447) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "style"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20171211042403) do
     t.decimal "cost_at_buy", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_confirm", default: false
     t.index ["user_id", "created_at"], name: "index_transactions_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
@@ -119,16 +120,6 @@ ActiveRecord::Schema.define(version: 20171211042403) do
     t.index ["name"], name: "index_users_on_name"
   end
 
-  add_foreign_key "categories", "users"
-  add_foreign_key "comments", "documents"
-  add_foreign_key "comments", "users"
-  add_foreign_key "documents", "categories"
-  add_foreign_key "documents", "users"
-  add_foreign_key "favorites", "documents"
-  add_foreign_key "favorites", "users"
-  add_foreign_key "history_downloads", "documents"
-  add_foreign_key "history_downloads", "users"
   add_foreign_key "history_views", "documents"
   add_foreign_key "history_views", "users"
-  add_foreign_key "transactions", "users"
 end

@@ -31,13 +31,12 @@
               <li><%= link_to t(".profile"), current_user %></li>
               <li><%= link_to t(".setting"), edit_user_path(current_user) %></li>
               <li><%= link_to t(".friends"), friends_path(user_id: current_user.id) %></li>
+              <li><%= link_to t(".history"), history_downloads_path %></li>
               <li class="divider"></li>
               <% if current_user.is_admin? %>
                 <li><%= link_to t(".doc_report"), search_report_path %></li>
                 <li><%= link_to t(".category"), admin_categories_path %></li>
-              <% end %>
-              <li><%= link_to t(".history"), history_downloads_path %></li>
-              <% if current_user.is_admin? %>
+                <li><%= link_to t(".transaction"), admin_transactions_path %></li>
                 <li><%= link_to t(".add_admin"), new_user_path(is_admin: true) %></li>
               <% end %>
               <li class="divider"></li>

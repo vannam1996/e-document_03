@@ -258,6 +258,12 @@ en:
     mail_user:
       title: "E-document"
       notice: "You not login e-document in three day"
+    added_coin:
+      title: "Transaction Success"
+      greeting: "Your transaction was success"
+      content: "You were bought: %{coin}. Current coins are %{coin_current}"
+      subject: "Confirm Buy Coin"
+
   document_mailer:
     upload_success:
       title: "E-document"
@@ -284,4 +290,3 @@ en:
         success: "Update Is Success!"
       category:
         confirm: "Are You Want Delete This Category?"
-

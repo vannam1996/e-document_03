@@ -1,6 +1,6 @@
 <div class="form-inline search">
   <%= label_tag "category[style]", t(".category") %>
-  <%= collection_select :category, "style", @categories, :id, :style,
+  <%= collection_select :category, :style, @categories, :id, :style,
     {prompt: true}, {class: "form-control category-search", id: "category"} %>
   <%= button_tag(type: "submit", class: "btn btn-primary btn-search") do %>
     <span class="glyphicon glyphicon-search"></span>
