@@ -6,11 +6,12 @@ module Admin
 
     def index
       @documents = Document.only_deleted.status_illegal(true).group_by(&:user_id)
-      @users = User.user_by_ids(@documents.keys).paginate page: params[:page]
+      @users = User.user_by_ids(@documents.keys).status_admin(false)
+        .paginate page: params[:page]
     end
 
     def destroy
-      if @user && @user.destroy
+      if @user && @user.destroy && !@user.is_admin?
         render json: {success: true, response_text: t("admin.users.success")}
       else
         render json: {success: false, response_text: t("admin.users.fail")}

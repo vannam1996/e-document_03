@@ -28,7 +28,7 @@
     <%= link_to favorites_path(@document) do %>
       <%= t ".favorite" %>
       <strong id="favorite" class="stat text-center">
-        <%= @document.favorites.size %>
+        <%= @document.favorites.count %>
       </strong>
     <% end %>
   </div>

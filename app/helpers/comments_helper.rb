@@ -9,4 +9,8 @@ module CommentsHelper
   def user_report? user_id, document
     document.comments.search_user(user_id).status_report(true).present?
   end
+
+  def owner_document? user, document
+    user == document.user
+  end
 end
