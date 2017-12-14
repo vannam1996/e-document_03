@@ -55,9 +55,17 @@ class HistoryDownloadsController < ApplicationController
       return unless current_user.update_attribute :coin,
         current_user.coin.to_i - Settings.history_downloads.cost_per_down
       download_document
+      update_coin_owner_document
     else
       flash[:warning] = t ".not_enough_coin"
       redirect_to request.referer || root_url
     end
+  end
+
+  def update_coin_owner_document
+    user_owner = @document.user
+    return if current_user? user_owner
+    user_owner.update_attribute :coin,
+      user_owner.coin.to_i + Settings.history_downloads.coin_owner_plus
   end
 end

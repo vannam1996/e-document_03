@@ -18,7 +18,7 @@ class FriendsController < ApplicationController
 
   def show
     user_ids = Friend.accepter(current_user.id).status_request(false).pluck(:sender_id)
-    @friends = User.request_friends(user_ids).paginate page: params[:page]
+    @friends = User.user_by_ids(user_ids).paginate page: params[:page]
   end
 
   def create
