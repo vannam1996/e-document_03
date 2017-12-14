@@ -1,0 +1,7 @@
+<h1><%= t ".subject" %></h1>
+
+<p><%= @user.name %></p>
+
+<p><%= t ".greeting" %></p></br>
+<p><%= t ".content", coin: @transaction.coin,
+  time: l(@transaction.created_at.localtime, format: :long) %></p>
