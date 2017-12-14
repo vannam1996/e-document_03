@@ -1,17 +1,23 @@
-User.create!(name:  "Example User",
-             email: "example@railstutorial.org",
+User.create!(name:  "Admin",
+             email: "admin1@gmail.com",
              password: "123456",
              password_confirmation: "123456",
-             is_admin: true)
+             is_admin: true,
+             up_count: 0,
+             down_count: 0,
+             coin: 2000)
 
 50.times do |n|
   name  = Faker::Name.name
-  email = "example-#{n+1}@railstutorial.org"
-  password = "password"
+  email = "user-#{n}@gmail.com"
+  password = "123456"
   User.create!(name: name,
                email: email,
                password: password,
-               password_confirmation: password)
+               password_confirmation: password,
+               up_count: 0,
+               down_count: 0,
+               coin: 30)
 end
 
 users = User.order(:created_at).take(6)
@@ -28,19 +34,5 @@ users = User.first
    users.categories.create!(style: style)
 end
 
-users = User.order(:created_at).take(6)
-10.times do |n|
-  name_document = Faker::Book.title
-  users.each { |user| user.documents.create!(name_document: name_document,
-    category_id: 1,
-    content: "#{name_document}as")}
-end
-
-users = User.order(:created_at).take(6)
-10.times do |n|
-  name_document = Faker::Book.title
-  users.each { |user| user.documents.create!(name_document: name_document,
-    category_id: 2,
-    content: "#{name_document}as")}
-end
-
+CoinValue.create!(cost_per_coin: 1000, type_buy: "ATM")
+CoinValue.create!(cost_per_coin: 2000, type_buy: "Paypal")

@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new params_user
+    set_coin_and_updown
     if @user.is_admin? && current_user.is_admin?
       save_admin
     else
@@ -84,5 +85,11 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def set_coin_and_updown
+    @user.coin = 20
+    @user.up_count = 0
+    @user.down_count = 0
   end
 end
