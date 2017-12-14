@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, except: %i(new create index)
-  before_action :logged_in_user, only: %i(edit update show)
+  before_action :logged_in_user, except: %i(create new)
   before_action :correct_user, only: %i(edit update)
 
   def edit; end
@@ -16,6 +16,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new params_user
+    @user.coin = Settings.user.default_coin
+    @user.down_count = @user.up_count = Settings.user.default_count
     if @user.is_admin? && current_user.is_admin?
       save_admin
     else
@@ -33,7 +35,16 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.status_admin(false).order_by_created_at.paginate page: params[:page]
+    if params[:name]
+      @users = User.search_users(params[:name]).status_admin(false).
+        order_by_created_at.paginate page: params[:page]
+      respond_to do |format|
+        format.html{render partial: "users"}
+        format.js
+      end
+    else
+      @users = User.status_admin(false).order_by_created_at.paginate page: params[:page]
+    end
   end
 
   private

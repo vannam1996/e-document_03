@@ -133,7 +133,6 @@ en:
     friended:
       title: "Friends List"
     user:
-      del: "Delete"
       admin: "Upgrade to Admin"
       confirm: "Are You Sure ?"
   friends:

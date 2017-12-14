@@ -1,10 +1,7 @@
 <% provide :title, t(".title") %>
 <h1><%= t ".title" %></h1>
+<%= render "form_search_user" %>
 
-<%= will_paginate %>
-
-<ul class="users">
-  <%= render @users %>
-</ul>
-
-<%= will_paginate %>
+<div class="users-ajax">
+  <%= render "users" %>
+</div>
