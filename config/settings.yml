@@ -12,6 +12,8 @@ user:
 documents:
   file: ".pdf"
   illegal: 5
+  coin_per_upload: 10
+  max_upload_in_month: 10
 category:
   maximum_style: 30
 comments:
@@ -23,3 +25,4 @@ history_downloads:
   down_times: 1
   max_down_free: 3
   cost_per_down: 10
+  coin_owner_plus: 1

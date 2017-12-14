@@ -17,13 +17,14 @@
     <%= link_to friend_path(id: @user.id) do %>
       <%= t ".requested" %>
       <strong id="request_send" class="stat text-center">
+        <%= Friend.accepter(current_user.id).status_request(false).size %>
       </strong>
     <% end %>
 
     <%= link_to "#" do %>
       <%= t ".pending_accept" %>
       <strong id="request_receiver" class="stat text-center">
-        <%= @user.accepting.size %>
+        <%= Friend.sender(current_user.id).status_request(false).size %>
       </strong>
     <% end %>
 

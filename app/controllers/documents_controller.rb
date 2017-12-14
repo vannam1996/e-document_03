@@ -33,9 +33,27 @@ class DocumentsController < ApplicationController
 
   def create
     @document = current_user.documents.new params_document
+    upload_in_month = current_user.documents
+      .in_period_upload(Time.zone.now.beginning_of_month, Time.zone.now.end_of_month)
+    if upload_in_month.size < Settings.documents.max_upload_in_month
+      upload_document
+    else
+      upload_error
+    end
+  end
+
+  private
+
+  def upload_error
+    flash[:danger] = t "documents.document.can_not_upload"
+    redirect_to request.referer || root_url
+  end
+
+  def upload_document
     if @document.save
       send_email
       update_count_upload
+      update_coin
       flash[:success] = t "documents.upload_success"
       redirect_to request.referer || root_url
     else
@@ -44,7 +62,10 @@ class DocumentsController < ApplicationController
     end
   end
 
-  private
+  def update_coin
+    current_user.update_attribute :coin,
+      current_user.coin.to_i + Settings.documents.coin_per_upload
+  end
 
   def update_count_upload
     current_user.update_attribute :up_count, current_user.up_count.to_i + 1
