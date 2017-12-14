@@ -158,6 +158,7 @@ en:
       download_times: "Downloads: %{times} times"
       view_detail: "View Details"
       save_history: "Error save history"
+      can_not_upload: "you can't upload more than %{count} document in month"
     document_detail:
       download_times: "Download times"
       comments: "Comments"

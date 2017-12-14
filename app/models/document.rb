@@ -12,6 +12,10 @@ class Document < ApplicationRecord
   scope :search_category, ->(category_id){where "category_id = ?", category_id}
   scope :search_id, ->(document_ids){where "id IN (?)", document_ids}
   scope :status_illegal, ->(status){where is_illegal: status}
+  scope :in_period_upload, ->(time_start, time_end) do
+    where("created_at BETWEEN ? AND ?",
+      time_start, time_end)
+  end
 
   mount_uploader :content, DocumentUploader
 end
