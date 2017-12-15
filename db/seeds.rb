@@ -1,7 +1,10 @@
-User.create!(name:  "Example User",
-             email: "example@railstutorial.org",
+User.create!(name:  "Admin",
+             email: "admin@gmail.com",
              password: "123456",
              password_confirmation: "123456",
+             up_count: 0,
+             down_count: 0,
+             coin: 100,
              is_admin: true)
 
 50.times do |n|
@@ -11,6 +14,9 @@ User.create!(name:  "Example User",
   User.create!(name: name,
                email: email,
                password: password,
+               up_count: 0,
+               down_count: 0,
+               coin: 20,
                password_confirmation: password)
 end
 
@@ -33,7 +39,7 @@ users = User.order(:created_at).take(6)
   name_document = Faker::Book.title
   users.each { |user| user.documents.create!(name_document: name_document,
     category_id: 1,
-    content: "#{name_document}as")}
+    content: "#{name_document}.pdf")}
 end
 
 users = User.order(:created_at).take(6)
@@ -41,6 +47,12 @@ users = User.order(:created_at).take(6)
   name_document = Faker::Book.title
   users.each { |user| user.documents.create!(name_document: name_document,
     category_id: 2,
-    content: "#{name_document}as")}
+    content: "#{name_document}.pdf")}
 end
 
+10.times do |n|
+  cost = n*100
+  type = Faker::Bank.name
+  CoinValue.create!(cost_per_coin: cost,
+    type_buy: type)
+end

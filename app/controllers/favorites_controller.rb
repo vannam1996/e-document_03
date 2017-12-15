@@ -3,8 +3,15 @@ class FavoritesController < ApplicationController
   before_action :find_favorite, only: %i(destroy)
 
   def index
-    @favorites = current_user.favorites.order_by_created_at
-      .paginate page: params[:page]
+    if params[:format]
+      find_document
+      @favorites = @document.favorites.order_by_created_at
+        .paginate page: params[:page]
+      render "index_users"
+    else
+      @favorites = current_user.favorites.order_by_created_at
+        .paginate page: params[:page]
+    end
   end
 
   def create
@@ -32,6 +39,13 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.find_by id: params[:id]
     return if @favorite
     flash[:danger] = t "favorite.error_find"
+    redirect_to root_path
+  end
+
+  def find_document
+    @document = Document.find_by id: params[:format]
+    return if @document
+    flash[:danger] = t "search_documents.search_category.not_found"
     redirect_to root_path
   end
 end

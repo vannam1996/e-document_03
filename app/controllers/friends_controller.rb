@@ -17,8 +17,14 @@ class FriendsController < ApplicationController
   end
 
   def show
-    user_ids = Friend.accepter(current_user.id).status_request(false).pluck(:sender_id)
-    @friends = User.user_by_ids(user_ids).paginate page: params[:page]
+    if params[:role]
+      user_ids = Friend.sender(current_user.id).status_request(false).pluck(:accepter_id)
+      @friends = User.user_by_ids(user_ids).paginate page: params[:page]
+      render "show_pending"
+    else
+      user_ids = Friend.accepter(current_user.id).status_request(false).pluck(:sender_id)
+      @friends = User.user_by_ids(user_ids).paginate page: params[:page]
+    end
   end
 
   def create

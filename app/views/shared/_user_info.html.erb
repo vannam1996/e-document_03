@@ -21,7 +21,7 @@
       </strong>
     <% end %>
 
-    <%= link_to "#" do %>
+    <%= link_to friend_path(id: @user.id, role: "sender") do %>
       <%= t ".pending_accept" %>
       <strong id="request_receiver" class="stat text-center">
         <%= size_list_pending %>
@@ -42,11 +42,13 @@
       </strong>
     <% end %>
 
-    <%= link_to "#" do %>
-      <%= t ".coins" %>
-      <strong id="coin" class="stat text-center">
-        <%= @user.coin %>
-      </strong>
+    <% if current_user? @user %>
+      <%= link_to "#" do %>
+        <%= t ".coins" %>
+        <strong id="coin" class="stat text-center">
+          <%= @user.coin %>
+        </strong>
+      <% end %>
     <% end %>
 
     <%= link_to search_deleted_url(@user.id) do %>
