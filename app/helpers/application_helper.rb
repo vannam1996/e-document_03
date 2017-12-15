@@ -8,11 +8,11 @@ module ApplicationHelper
     end
   end
 
-  def size_list_request
-    Friend.accepter(current_user.id).status_request(false).size
+  def size_list_request user
+    Friend.accepter(user.id).status_request(false).size
   end
 
-  def size_list_pending
-    Friend.sender(current_user.id).status_request(false).size
+  def size_list_pending user
+    Friend.sender(user.id).status_request(false).size
   end
 end

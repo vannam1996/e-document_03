@@ -14,18 +14,20 @@
       </strong>
     <% end %>
 
-    <%= link_to friend_path(id: @user.id) do %>
-      <%= t ".requested" %>
-      <strong id="request_send" class="stat text-center">
-        <%= size_list_request %>
-      </strong>
-    <% end %>
+    <% if current_user? @user %>
+      <%= link_to friend_path(id: @user.id) do %>
+        <%= t ".requested" %>
+        <strong id="request_send" class="stat text-center">
+          <%= size_list_request @user %>
+        </strong>
+      <% end %>
 
-    <%= link_to friend_path(id: @user.id, role: "sender") do %>
-      <%= t ".pending_accept" %>
-      <strong id="request_receiver" class="stat text-center">
-        <%= size_list_pending %>
-      </strong>
+      <%= link_to friend_path(id: @user.id, role: "sender") do %>
+        <%= t ".pending_accept" %>
+        <strong id="request_receiver" class="stat text-center">
+          <%= size_list_pending @user %>
+        </strong>
+      <% end %>
     <% end %>
 
     <%= link_to "#" do %>
@@ -51,7 +53,7 @@
       <% end %>
     <% end %>
 
-    <%= link_to search_deleted_url(@user.id) do %>
+    <%= link_to search_deleted_url(id: @user.id) do %>
       <%= t ".document_delete" %>
       <strong id="document_delete" class="stat text-center">
         <%= @user.documents.only_deleted.size %>

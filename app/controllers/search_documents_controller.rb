@@ -1,4 +1,5 @@
 class SearchDocumentsController < ApplicationController
+  before_action :logged_in_user
   before_action :checked_admin, only: :search_reported
   before_action :correct_user, only: :search_deleted
 
@@ -19,7 +20,6 @@ class SearchDocumentsController < ApplicationController
   end
 
   def search_deleted
-    user = User.find_by id: params[:format]
-    @documents = user.documents.only_deleted.paginate page: params[:page]
+    @documents = @user.documents.only_deleted.paginate page: params[:page]
   end
 end

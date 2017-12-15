@@ -1,7 +1,8 @@
 class FriendsController < ApplicationController
-  before_action :logged_in_user, only: %i(index destroy)
+  before_action :logged_in_user
   before_action :find_user, only: %i(show destroy)
   before_action :find_friend, only: :update
+  before_action :correct_user, only: :show
 
   def index
     @user = User.find_by id: params[:user_id]
@@ -18,11 +19,11 @@ class FriendsController < ApplicationController
 
   def show
     if params[:role]
-      user_ids = Friend.sender(current_user.id).status_request(false).pluck(:accepter_id)
+      user_ids = Friend.sender(@user.id).status_request(false).pluck(:accepter_id)
       @friends = User.user_by_ids(user_ids).paginate page: params[:page]
       render "show_pending"
     else
-      user_ids = Friend.accepter(current_user.id).status_request(false).pluck(:sender_id)
+      user_ids = Friend.accepter(@user.id).status_request(false).pluck(:sender_id)
       @friends = User.user_by_ids(user_ids).paginate page: params[:page]
     end
   end
@@ -62,7 +63,7 @@ class FriendsController < ApplicationController
 
   def reponse_action
     respond_to do |format|
-      format.html{redirect_to @user}
+      format.html{redirect_to request.referer}
       format.js
     end
   end
