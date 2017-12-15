@@ -32,6 +32,7 @@ class User < ApplicationRecord
   scope :order_by_created_at, ->{order created_at: :desc}
   scope :status_admin, ->(status){where "is_admin = ?", status}
   scope :not_login, ->(datetime){where "login_last_at < ?", datetime}
+  scope :search_users, ->(name_search){where "name LIKE ?", "%#{name_search}%"}
 
   def remember
     self.remember_token = User.new_token

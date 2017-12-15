@@ -9,6 +9,8 @@ user:
   avatar: 150
   avt_friend: 80
   default_buy: 1
+  default_coin: 20
+  default_count: 0
 documents:
   file: ".pdf"
   illegal: 5
