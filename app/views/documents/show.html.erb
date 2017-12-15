@@ -1,11 +1,15 @@
 <div class="row">
   <aside class="col-md-4">
     <%= render "documents/document_detail" %>
-    <div class="report">
-      <%= render "comments/report" %>
+    <div class="form-inline">
+      <div class="form-group report">
+        <%= render "comments/report" %>
+      </div>
+      <div class="form-group">
+        <%= render "favorite_form" %>
+      </div>
     </div>
     <%= render "comments/modal_report" %>
-    <%= render "favorite_form" %>
   </aside>
   <div class="col-md-8" id="comments">
     <div id = "new-comment">

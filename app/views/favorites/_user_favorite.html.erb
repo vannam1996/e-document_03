@@ -1,0 +1,4 @@
+<tr id="favorite-<%= favorite.id %>">
+  <td><%= link_to favorite.user.name, favorite.user %></td>
+  <td><%= l favorite.created_at.localtime, format: :long %></td>
+</tr>
