@@ -253,6 +253,7 @@ aside {
   }
 }
 
+
 /* documents */
 
 .documents {
@@ -330,6 +331,11 @@ aside {
 }
 
 /*comment list*/
+
+.pull-left {
+  float: left !important;
+  padding-top: 20px;
+}
 
 .media .media-object {
   max-width: 120px;

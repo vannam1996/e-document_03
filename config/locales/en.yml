@@ -34,6 +34,9 @@ en:
   title: "Edocument"
   layouts:
     header:
+      favorites: "List favorites"
+      account: "Account"
+      transaction: "Transaction"
       add_admin: "New admin"
       logo: "E-Document"
       login: "Log in"
@@ -80,6 +83,14 @@ en:
   shared:
     error_count: "The form contains"
     error_text: "error"
+    user_info:
+      friend: "Friend"
+      requested: "Request"
+      pending_accept: "Pending accept"
+      download_times: "Download times"
+      upload_times: "Upload times"
+      coins: "Coins"
+      document_delete: "Document delete"
   users:
     add_friend:
       send_request: "Add friend"
@@ -228,6 +239,7 @@ en:
       reply: "Reply"
     modal_report:
       head: "Report"
+      submit: "Report"
     report:
       reported: "Reported"
       report: "Report"
@@ -297,14 +309,15 @@ en:
       category:
         confirm: "Are You Want Delete This Category?"
     users:
-        success: "Delete user success"
-        fail: "Delete user fail"
-        not_admin: "You aren't admin"
-        table_user:
-          name_user: "Name"
-          number_illegal: "Number document illegal"
-          view: "View document illegal"
-          delete: "Delete user"
+      success: "Delete user success"
+      fail: "Delete user fail"
+      not_admin: "You aren't admin"
+      table_user:
+        title: "Ban user"
+        name_user: "Name"
+        number_illegal: "Number document illegal"
+        view: "View document illegal"
+        delete: "Delete user"
     transactions:
       not_found: "Not Found Information"
       destroy:

@@ -17,20 +17,20 @@ class FavoritesController < ApplicationController
   def create
     @favorite = current_user.favorites.new document_id: params[:document_id]
     if @favorite && @favorite.save
-      flash[:success] = t "favorite.add_success"
+      reponse_action
     else
       flash[:danger] = t "favorite.add_error"
+      redirect_to request.referer || root_url
     end
-    redirect_to request.referer || root_url
   end
 
   def destroy
     if @favorite && @favorite.destroy
-      flash[:success] = t "favorite.un_success"
+      reponse_action
     else
       flash[:danger] = t "favorite.un_error"
+      redirect_to request.referer || root_url
     end
-    redirect_to request.referer || root_url
   end
 
   private
@@ -47,5 +47,13 @@ class FavoritesController < ApplicationController
     return if @document
     flash[:danger] = t "search_documents.search_category.not_found"
     redirect_to root_path
+  end
+
+  def reponse_action
+    @document = @favorite.document
+    respond_to do |format|
+      format.html{}
+      format.js
+    end
   end
 end
