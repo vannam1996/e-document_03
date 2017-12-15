@@ -109,11 +109,11 @@ ActiveRecord::Schema.define(version: 20171213095230) do
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "email"
-    t.integer "coin", default: 20
+    t.integer "coin"
     t.boolean "is_admin", default: false
     t.string "password_digest"
-    t.integer "down_count", default: 0
-    t.integer "up_count", default: 0
+    t.integer "down_count"
+    t.integer "up_count"
     t.datetime "login_last_at"
     t.string "avatar"
     t.datetime "created_at", null: false
