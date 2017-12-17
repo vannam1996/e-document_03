@@ -32,6 +32,7 @@
               <li><%= link_to t(".setting"), edit_user_path(current_user) %></li>
               <li><%= link_to t(".friends"), friends_path(user_id: current_user.id) %></li>
               <li><%= link_to t(".history"), history_downloads_path %></li>
+              <li><%= link_to t(".history_view"), history_views_path %></li>
               <li><%= link_to t(".favorites"), favorites_path %></li>
               <% if current_user.is_admin? %>
                 <li class="divider"></li>

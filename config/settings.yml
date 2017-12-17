@@ -1,4 +1,5 @@
 user:
+  illegal: 5
   maximum_name: 50
   maximum_email: 255
   minimum_password: 6

@@ -89,6 +89,7 @@ class UsersController < ApplicationController
   end
 
   def update_user user
+    params[:user][:is_admin] = false
     if user.update_attributes params_user
       flash[:success] = t "users.update.success"
       redirect_to @user

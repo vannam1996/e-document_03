@@ -8,8 +8,12 @@
     <% end %>
   </td>
   <td class="text-center">
-    <%= link_to "#", class: "btn-ban-user", data: {id: user.id} do %>
-      <span class="glyphicon glyphicon-floppy-remove"></span>
+    <% if user_illegal? user %>
+      <%= link_to "#", class: "btn-ban-user btn btn-danger btn-sm", data: {id: user.id} do %>
+        <span class="glyphicon glyphicon-trash"></span>
+      <% end %>
+    <% else %>
+      <span class="glyphicon glyphicon-trash"></span>
     <% end %>
   </td>
 </tr>
