@@ -217,6 +217,10 @@ en:
       name_doc: "Name Document"
       time: "Time"
       favorite: "Favorite"
+    index_users:
+      name_user: User Name
+      time: "Time"
+      title: "List User Favorite"
   history_downloads:
     error: "error download"
     create:

@@ -9,8 +9,8 @@ User.create!(name:  "Admin",
 
 50.times do |n|
   name  = Faker::Name.name
-  email = "example-#{n+1}@railstutorial.org"
-  password = "password"
+  email = "user#{n+1}@gmail.com"
+  password = "123456"
   User.create!(name: name,
                email: email,
                password: password,
@@ -21,7 +21,7 @@ User.create!(name:  "Admin",
 end
 
 users = User.order(:created_at).take(6)
-20.times do |n|
+10.times do |n|
   users.each { |user| Friend.create!(
     is_accept: true,
     sender_id: user.id,
@@ -35,24 +35,48 @@ users = User.first
 end
 
 users = User.order(:created_at).take(6)
-10.times do |n|
-  name_document = Faker::Book.title
-  users.each { |user| user.documents.create!(name_document: name_document,
-    category_id: 1,
-    content: "#{name_document}.pdf")}
+5.times do |n|
+  users.each do |user|
+    name_document = Faker::Book.title
+    user.documents.create!(
+    name_document: name_document,
+    category_id: n+1,
+    content: "#{name_document}.pdf")
+  end
 end
 
 users = User.order(:created_at).take(6)
-10.times do |n|
-  name_document = Faker::Book.title
-  users.each { |user| user.documents.create!(name_document: name_document,
-    category_id: 2,
-    content: "#{name_document}.pdf")}
+5.times do |n|
+  users.each do |user|
+    name_document = Faker::Book.title
+    user.documents.create!(
+    name_document: name_document,
+    category_id: n+1,
+    content: "#{name_document}.pdf",
+    deleted_at: Faker::Date.between(2.months.ago, Date.today),
+    is_illegal: 1)
+  end
 end
 
 10.times do |n|
-  cost = n*100
-  type = Faker::Bank.name
-  CoinValue.create!(cost_per_coin: cost,
-    type_buy: type)
+  CoinValue.create!(cost_per_coin: n*100,
+    type_buy: Faker::Bank.name)
+end
+
+users = User.order(:created_at).take(10)
+users.each do |user|
+  10.times do |n|
+    user.favorites.create!(document_id: n+1)
+    user.history_downloads.create!(document_id: n+1)
+    user.history_views.create!(document_id: n+1)
+    user.comments.create!(content: Faker::Lorem.sentence(5),
+    document_id: n+1,
+    is_report: 1)
+    user.comments.create!(content: Faker::Lorem.sentence(5),
+    document_id: n+1,
+    is_report: 0)
+    user.comments.create!(content: Faker::Lorem.sentence(5),
+    document_id: n+1,
+    reply_id: n+1)
+  end
 end

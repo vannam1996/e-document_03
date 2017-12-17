@@ -10,6 +10,7 @@
     <% if @histories.any? %>
       <%= render partial: "history_download", collection: @histories, as: :history %>
     <% end %>
-    <%= will_paginate @histories %>
   </tbody>
 </table>
+<%= will_paginate @histories %>
+
