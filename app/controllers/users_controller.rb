@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :find_user, except: %i(new create index)
   before_action :logged_in_user, except: %i(create new)
-  before_action :correct_user_admin, only: %i(edit update)
+  authorize_resource
 
   def edit; end
 
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new params_user
+    @user = User.new user_params
     @user.coin = Settings.user.default_coin
     @user.down_count = @user.up_count = Settings.user.default_count
     if @user.is_admin? && current_user.is_admin?
@@ -68,7 +68,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def params_user
+  def user_params
     params.require(:user).permit :name, :email, :password, :password_confirmation, :avatar, :is_admin
   end
 
@@ -89,8 +89,7 @@ class UsersController < ApplicationController
   end
 
   def update_user user
-    params[:user][:is_admin] = false
-    if user.update_attributes params_user
+    if user.update_attributes user_params
       flash[:success] = t "users.update.success"
       redirect_to @user
     else

@@ -3,6 +3,7 @@ class FriendsController < ApplicationController
   before_action :find_user, only: %i(show destroy)
   before_action :find_friend, only: :update
   before_action :correct_user, only: :show
+  authorize_resource
 
   def index
     @user = User.find_by id: params[:user_id]
