@@ -22,6 +22,7 @@ category:
 comments:
   per_page: 8
   minimum_content: 10
+  is_report: "true"
 mailer:
   default: "from@example.com"
 history_downloads:
@@ -29,3 +30,5 @@ history_downloads:
   max_down_free: 3
   cost_per_down: 10
   coin_owner_plus: 1
+ability:
+  namespace_admin: "Admin"
