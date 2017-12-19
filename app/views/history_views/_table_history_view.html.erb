@@ -1,0 +1,15 @@
+<h3 class="text-center"><%= t ".title" %></h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t".name_document" %></th>
+      <th><%= t".time" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @history_views.any? %>
+      <%= render @history_views %>
+    <% end %>
+    <%= will_paginate @history_views %>
+  </tbody>
+</table>

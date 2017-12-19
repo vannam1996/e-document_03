@@ -19,9 +19,9 @@
     <% end %>
 
     <%= link_to "#" do %>
-      <%= t ".Comments" %>
-      <strong id="Comments" class="stat text-center">
-        <%= @document.comments.size %>
+      <%= t ".comments" %>
+      <strong id="comments" class="stat text-center">
+        <%= size_comments @document %>
       </strong>
     <% end %>
 

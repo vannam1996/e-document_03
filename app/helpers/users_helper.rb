@@ -1,4 +1,8 @@
 module UsersHelper
+  def user_illegal? user
+    user.documents.only_deleted.status_illegal(true).size >= Settings.user.illegal
+  end
+
   def correct_user
     @user = User.find_by id: params[:id]
     return if current_user? @user

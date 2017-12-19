@@ -80,3 +80,13 @@ users.each do |user|
     reply_id: n+1)
   end
 end
+
+sender_id = User.all.pluck(:id)
+accepter_id = User.all.pluck(:id)
+20.times do |n|
+  Friend.create!(
+    is_accept: 0,
+    sender_id: sender_id[rand(sender_id.size)],
+    accepter_id: accepter_id[rand(accepter_id.size)]
+  )
+end

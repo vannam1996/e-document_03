@@ -51,6 +51,7 @@ en:
       friends: "Friends list"
       upload: "Upload"
       history: "History Download"
+      history_view: "History Views"
       doc_report: "Documents Reported"
       category: "Categories"
       ban_user: "Ban user"
@@ -230,6 +231,8 @@ en:
       name_doc: "Name Document"
       time: "Time"
   comments:
+    comment_reply:
+      del: "delete"
     comment:
       show_reply: "Show comment reply"
       del: "delete"
@@ -291,6 +294,11 @@ en:
     upload_success:
       title: "E-document"
       notice: "Your document has been uploaded"
+  history_views:
+    table_history_view:
+      title: "History views"
+      name_document: "Documents"
+      time: "Times"
   admin:
     not_admin: "You Aren't Admin"
     categories:
@@ -313,6 +321,7 @@ en:
       category:
         confirm: "Are You Want Delete This Category?"
     users:
+      confirm: "Delete this user"
       success: "Delete user success"
       fail: "Delete user fail"
       not_admin: "You aren't admin"
