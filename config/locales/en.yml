@@ -36,6 +36,7 @@ en:
   title: "Edocument"
   layouts:
     header:
+      transaction_history: "History Transactions"
       favorites: "List favorites"
       account: "Account"
       transaction: "Transaction"
@@ -72,7 +73,6 @@ en:
       btn_submit: "Search"
   hello: "Hello world"
   title: "Edocument"
-
   sessions:
     new:
       email: "Email Address"
@@ -297,6 +297,13 @@ en:
     un_success: "Unfavorite success"
     un_error: "Unfavorite error"
     error_find: "Can't find favorite"
+  transactions:
+    index:
+      title: "History transaction"
+      name_owner: "Name"
+      coin: "Coin"
+      time: "Time"
+      status: "Status"
   user_mailer:
     static_end_month:
       name: "Name"

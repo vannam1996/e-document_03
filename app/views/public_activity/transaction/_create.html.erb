@@ -1,0 +1,6 @@
+<tr id="activity-<%= activity.id %>">
+  <td><%= activity.owner.name %></td>
+  <td><%= activity.trackable.coin %></td>
+  <td><%= l activity.created_at.localtime, format: :long %></td>
+  <td><%= activity.trackable.is_confirm %></td>
+</tr>

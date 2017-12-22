@@ -34,6 +34,7 @@
               <li><%= link_to t(".history"), history_downloads_path %></li>
               <li><%= link_to t(".history_view"), history_views_path %></li>
               <li><%= link_to t(".favorites"), favorites_path %></li>
+              <li><%= link_to t(".transaction_history"), transactions_path %></li>
               <% if current_user.is_admin? %>
                 <li class="divider"></li>
                 <li><%= link_to t(".doc_report"), search_report_path %></li>

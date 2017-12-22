@@ -1,6 +1,11 @@
 class TransactionsController < ApplicationController
   authorize_resource
 
+  def index
+    @activities = PublicActivity::Activity.order("created_at desc")
+      .where(owner_id: current_user.id, key: "transaction.create")
+  end
+
   def create
     @user = current_user
     @transaction = current_user.transactions.new transaction_params

@@ -1,0 +1,16 @@
+<h3 class="text-center"><%= t ".title" %></h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t".name_owner" %></th>
+      <th><%= t".coin" %></th>
+      <th><%= t".time" %></th>
+      <th><%= t".status" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @activities.any? %>
+      <%= render_activities(@activities) %>
+    <% end %>
+  </tbody>
+</table>

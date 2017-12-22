@@ -22,8 +22,8 @@ class Ability
       can :manage, [Friend, Favorite], user_id: user.id
       can %i(create destroy), [Comment, Document], user_id: user.id
       can %i(index show), Document
-      can %i(index create), HistoryDownload
-      can :create, [Transaction, Category]
+      can %i(index create), [HistoryDownload, Transaction], user_id: user.id
+      can :create, Category
     end
   end
 end

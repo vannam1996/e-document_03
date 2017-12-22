@@ -9,4 +9,7 @@ class Transaction < ApplicationRecord
   scope :order_by_created_at, ->{order created_at: :desc}
   scope :status_confirm, ->(status){where "is_confirm = ?", status}
   scope :exception_user, ->(user_id){where "not user_id = ?", user_id}
+
+  include PublicActivity::Model
+  tracked owner: :user
 end
